@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details - Nirmal Sand and Infra</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
+          <span class="logo-text">Nirmal Sand and Infra</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Project Details -->
+  <section class="project-details">
+    <div class="container">
+      <div class="project-header">
+        <h1 class="project-title">Corporate Tower Complex</h1>
+        <div class="project-tags">
+          <span class="tag">Commercial</span>
+          <span class="tag">Mumbai, Maharashtra</span>
+          <span class="tag">Completed 2023</span>
+        </div>
+      </div>
+
+      <div class="project-gallery">
+        <div class="main-image">
+          <img src="assets/project-detail-main.jpg" alt="Project Main Image" id="mainImage">
+        </div>
+        <div class="thumbnail-gallery">
+          <img src="assets/project-detail-1.jpg" alt="Project Image 1" class="thumbnail active" onclick="changeMainImage(this)">
+          <img src="assets/project-detail-2.jpg" alt="Project Image 2" class="thumbnail" onclick="changeMainImage(this)">
+          <img src="assets/project-detail-3.jpg" alt="Project Image 3" class="thumbnail" onclick="changeMainImage(this)">
+          <img src="assets/project-detail-4.jpg" alt="Project Image 4" class="thumbnail" onclick="changeMainImage(this)">
+        </div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-description">
+          <h2>Project Description</h2>
+          <p>The Corporate Tower Complex stands as a testament to modern architectural excellence and sustainable construction practices. This 40-story commercial building features state-of-the-art facilities, energy-efficient systems, and premium amenities designed to meet the needs of today's businesses.</p>
+          
+          <p>Located in the heart of Mumbai's business district, this project incorporates cutting-edge technology and innovative design elements that create an inspiring work environment. The building features flexible office spaces, conference facilities, retail outlets, and underground parking.</p>
+
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>40 floors of premium office space</li>
+            <li>LEED Gold certified green building</li>
+            <li>Advanced HVAC and lighting systems</li>
+            <li>High-speed elevators and modern infrastructure</li>
+            <li>Rooftop garden and recreational facilities</li>
+            <li>24/7 security and building management</li>
+          </ul>
+
+          <h3>Technical Specifications</h3>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <strong>Total Area:</strong>
+              <span>2.5 Million sq ft</span>
+            </div>
+            <div class="spec-item">
+              <strong>Construction Period:</strong>
+              <span>36 months</span>
+            </div>
+            <div class="spec-item">
+              <strong>Investment:</strong>
+              <span>₹500 Crores</span>
+            </div>
+            <div class="spec-item">
+              <strong>Parking Capacity:</strong>
+              <span>1200 vehicles</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-sidebar">
+          <div class="project-info-card">
+            <h3>Project Information</h3>
+            <div class="info-item">
+              <i class="fas fa-calendar"></i>
+              <div>
+                <strong>Completion Date</strong>
+                <span>December 2023</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Location</strong>
+                <span>Bandra Kurla Complex, Mumbai</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-building"></i>
+              <div>
+                <strong>Type</strong>
+                <span>Commercial Tower</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-tie"></i>
+              <div>
+                <strong>Client</strong>
+                <span>Mumbai Development Corporation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Location Map -->
+      <div class="project-map">
+        <h2>Project Location</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.8267739870393!2d72.86311931490213!3d19.063109987094398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8c2b1234567%3A0x1234567890abcdef!2sBandra%20Kurla%20Complex%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Projects Carousel -->
+  <section class="more-projects">
+    <div class="container">
+      <h2 class="section-title">More Projects</h2>
+      <div class="more-projects-carousel">
+        <div class="more-projects-container">
+          <div class="more-project-card">
+            <img src="assets/more-project-1.jpg" alt="More Project 1">
+            <div class="more-project-info">
+              <h3>Luxury Residential Complex</h3>
+              <p>Delhi, NCR</p>
+              <a href="project-details.html?id=2" class="view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="more-project-card">
+            <img src="assets/more-project-2.jpg" alt="More Project 2">
+            <div class="more-project-info">
+              <h3>Highway Bridge</h3>
+              <p>Pune, Maharashtra</p>
+              <a href="project-details.html?id=3" class="view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="more-project-card">
+            <img src="assets/more-project-3.jpg" alt="More Project 3">
+            <div class="more-project-info">
+              <h3>Industrial Facility</h3>
+              <p>Chennai, Tamil Nadu</p>
+              <a href="project-details.html?id=4" class="view-btn">View Project</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
+            <span>Nirmal Sand and Infra</span>
+          </div>
+          <p class="footer-description">
+            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="clients.html">Our Clients</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Commercial Construction</a></li>
+            <li><a href="#">Residential Projects</a></li>
+            <li><a href="#">Infrastructure Development</a></li>
+            <li><a href="#">Industrial Construction</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Construction Street, Mumbai, Maharashtra</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@nirmalsandinfra.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/project-details.js"></script>
+</body>
+</html>

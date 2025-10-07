@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Sand and Infra v32 - Premium Construction Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gold: #eba500;
+            --dark-gray: #292929;
+            --white: #ffffff;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-gold), #d4940a);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold), #d4940a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(235, 165, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(235, 165, 0, 0.6); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .carousel-indicator.active {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        .project-carousel {
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .project-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Client carousel scrollbar hiding */
+        #clientsCarousel {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        #clientsCarousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .coming-soon-bg {
+            background: linear-gradient(45deg, #292929, #1a1a1a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coming-soon-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(235, 165, 0, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(235, 165, 0, 0.4), 
+                           0 0 40px rgba(235, 165, 0, 0.3),
+                           0 0 60px rgba(235, 165, 0, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(235, 165, 0, 0.6), 
+                           0 0 60px rgba(235, 165, 0, 0.4),
+                           0 0 90px rgba(235, 165, 0, 0.3);
+            }
+        }
+        
+        .glow-effect {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(235, 165, 0, 0.5);
+        }
+        
+        .glow-gold:hover {
+            box-shadow: 0 0 30px rgba(235, 165, 0, 0.8);
+        }
+        
+        .upcoming-product-glow {
+            box-shadow: 0 0 30px rgba(235, 165, 0, 0.6), 
+                       0 0 60px rgba(235, 165, 0, 0.4),
+                       0 0 90px rgba(235, 165, 0, 0.3),
+                       0 0 120px rgba(235, 165, 0, 0.2);
+            animation: upcomingGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes upcomingGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(235, 165, 0, 0.6), 
+                           0 0 60px rgba(235, 165, 0, 0.4),
+                           0 0 90px rgba(235, 165, 0, 0.3),
+                           0 0 120px rgba(235, 165, 0, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(235, 165, 0, 0.8), 
+                           0 0 80px rgba(235, 165, 0, 0.6),
+                           0 0 120px rgba(235, 165, 0, 0.4),
+                           0 0 160px rgba(235, 165, 0, 0.3);
+            }
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+
+
+        /* Premium Construction Scene Animations */
+        .construction-scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        .construction-svg {
+            position: absolute;
+            top: 77px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Road Roller Animation */
+        .road-roller {
+            animation: rollerMove 25s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rollerMove {
+            0% { transform: translateX(-100px); }
+            50% { transform: translateX(400px); }
+            100% { transform: translateX(-100px); }
+        }
+
+        .road-roller circle {
+            animation: wheelRotate 2s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes wheelRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Excavator Animation */
+        .excavator {
+            animation: excavatorWork 15s ease-in-out infinite;
+        }
+
+        @keyframes excavatorWork {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-20px) rotate(-2deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(20px) rotate(2deg); }
+        }
+
+        .excavator line:nth-child(3) {
+            animation: boomMove 8s ease-in-out infinite;
+            transform-origin: 835px 210px;
+        }
+
+        .excavator line:nth-child(4) {
+            animation: armMove 8s ease-in-out infinite;
+            transform-origin: 780px 160px;
+        }
+
+        @keyframes boomMove {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-15deg); }
+        }
+
+        @keyframes armMove {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+
+        /* Crane Animation */
+        .crane {
+            animation: craneFloat 12s ease-in-out infinite;
+        }
+
+        @keyframes craneFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .crane line:nth-child(3) {
+            animation: jibSway 10s ease-in-out infinite;
+            transform-origin: 970px 110px;
+        }
+
+        @keyframes jibSway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .crane circle {
+            animation: hookSway 6s ease-in-out infinite;
+        }
+
+        @keyframes hookSway {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(8px); }
+        }
+
+        /* Road Markings Animation */
+        .road-markings {
+            animation: roadProgress 20s linear infinite;
+        }
+
+        @keyframes roadProgress {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .road-line {
+            animation: lineGlow 3s ease-in-out infinite;
+        }
+
+        .road-line:nth-child(odd) {
+            animation-delay: 0s;
+        }
+
+        .road-line:nth-child(even) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; fill: #f59e0b; }
+        }
+
+        /* Flyover Structure Animation */
+        .flyover {
+            animation: structureStability 18s ease-in-out infinite;
+        }
+
+        @keyframes structureStability {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+
+        .flyover line {
+            animation: cableVibration 4s ease-in-out infinite;
+        }
+
+        .flyover line:nth-child(4) { animation-delay: 0.5s; }
+        .flyover line:nth-child(5) { animation-delay: 1s; }
+        .flyover line:nth-child(6) { animation-delay: 1.5s; }
+
+        @keyframes cableVibration {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; stroke-width: 1.5; }
+        }
+
+        /* Premium Glow Effects */
+        .road-roller rect:first-child,
+        .excavator rect:nth-child(3),
+        .crane rect:first-child {
+            filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4));
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .construction-scene {
+                opacity: 0.1;
+            }
+            
+            .construction-svg {
+                transform: scale(0.8);
+            }
+        }
+
+        .banner-bg-1 {
+            background: linear-gradient(rgb(235 165 0 / 0%), rgb(235 165 0 / 0%), rgb(235 165 0 / 0%), rgba(235, 165, 0, 0.7), rgba(212, 148, 10, 0.7)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .banner-bg-2 {
+            background: linear-gradient(rgb(235 165 0 / 0%), rgb(235 165 0 / 0%), rgb(235 165 0 / 0%), rgba(41, 41, 41, 0.7), rgba(26, 26, 26, 0.7)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .banner-bg-3 {
+            background: linear-gradient(rgb(235 165 0 / 0%), rgb(235 165 0 / 0%), rgb(235 165 0 / 0%), rgba(235, 165, 0, 0.7), rgba(212, 148, 10, 0.7)), 
+                        url('https://plus.unsplash.com/premium_photo-1661963212517-830bbb7d76fc?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .bg-logo {
+  position: relative;
+}
+
+.bg-logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/bigbagSandLogo.png") no-repeat center center;
+  background-size: contain;
+  opacity: 0.1;     /* adjust visibility */
+  z-index: 0;
+}
+
+.bg-logo > * {
+  position: relative;
+  z-index: 1; /* keep content above the background */
+}
+
+        /* Premium Blob Square Animations */
+        .premium-blob {
+            position: absolute;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            opacity: 0.15;
+            animation: blobFloat 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .premium-blob.gold {
+            background: linear-gradient(135deg, #eba500, #d4940a);
+            box-shadow: 0 0 40px rgba(235, 165, 0, 0.3);
+        }
+
+        .premium-blob.dark {
+            background: linear-gradient(135deg, #292929, #1a1a1a);
+            box-shadow: 0 0 40px rgba(41, 41, 41, 0.2);
+        }
+
+        .premium-blob.white {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .premium-blob.small {
+            width: 80px;
+            height: 80px;
+        }
+
+        .premium-blob.medium {
+            width: 120px;
+            height: 120px;
+        }
+
+        .premium-blob.large {
+            width: 180px;
+            height: 180px;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            33% { 
+                transform: translateY(-20px) rotate(120deg) scale(1.1);
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+            }
+            66% { 
+                transform: translateY(10px) rotate(240deg) scale(0.9);
+                border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+            }
+        }
+
+        .premium-blob.delay-1 { animation-delay: -5s; }
+        .premium-blob.delay-2 { animation-delay: -10s; }
+        .premium-blob.delay-3 { animation-delay: -15s; }
+
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg width="120" height="60" viewBox="0 0 120 60" class="hover:opacity-90 transition-opacity">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#eba500;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d4940a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Building Icon Outlines -->
+                        <rect x="20" y="15" width="8" height="30" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="30" y="20" width="8" height="25" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="40" y="12" width="8" height="33" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="50" y="18" width="8" height="27" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <!-- Company Initials -->
+                        <text x="70" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#logoGradient)">NS</text>
+                        <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="url(#logoGradient)" opacity="0.8">INFRA</text>
+                        <!-- Decorative elements -->
+                        <circle cx="105" cy="15" r="3" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                        <circle cx="105" cy="45" r="2" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Services</a>
+                    <a href="#projects" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl" style="color: var(--dark-gray);"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-40 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold" style="color: var(--dark-gray);">Menu</h2>
+                    <button onclick="toggleMobileMenu()">
+                        <i class="fas fa-times text-2xl" style="color: var(--dark-gray);"></i>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="#home" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Home</a>
+                    <a href="#about" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">About</a>
+                    <a href="#services" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Services</a>
+                    <a href="#projects" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Projects</a>
+                    <a href="#contact" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Carousel Section -->
+        <section id="home" class="carousel-container h-[40rem] md:h-120 relative">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-item relative">
+                    <div class="w-full h-[40rem] md:h-120 banner-bg-1 flex items-center">
+                        <div class="container mx-auto px-4">
+                            <div class="text-white max-w-2xl">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-slide-up">Building Dreams</h1>
+                                <p class="text-xl md:text-2xl mb-8 animate-slide-up">Premium Construction Solutions</p>
+                                <button class="bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors glow-effect">
+                                    Explore Projects
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item relative">
+                    <div class="w-full h-[40rem] md:h-120 banner-bg-2 flex items-center">
+                        <div class="container mx-auto px-4">
+                            <div class="text-white max-w-2xl">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Excellence in Infrastructure</h1>
+                                <p class="text-xl md:text-2xl mb-8">Quality Sand & Construction Materials</p>
+                                <button class="gradient-bg text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item relative">
+                    <div class="w-full h-120 md:h-screen banner-bg-3 flex items-center">
+                        <div class="container mx-auto px-4">
+                            <div class="text-white max-w-2xl">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Innovation & Quality</h1>
+                                <p class="text-xl md:text-2xl mb-8">Your Trusted Construction Partner</p>
+                                <button class="bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                                    Get Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all z-10" onclick="previousSlide()">
+                <i class="fas fa-chevron-left text-xl"></i>
+            </button>
+            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all z-10" onclick="nextSlide()">
+                <i class="fas fa-chevron-right text-xl"></i>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <!-- <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10"> -->
+                <!-- <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-all carousel-indicator active" onclick="goToSlide(0)"></button>
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-all carousel-indicator" onclick="goToSlide(1)"></button>
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-all carousel-indicator" onclick="goToSlide(2)"></button> -->
+            <!-- </div> -->
+        </section>
+
+        <!-- Company Brief & Achievements -->
+        <section id="about" class="relative py-32 bg-gradient-to-b from-transparent via-gray-50 via-yellow-50 to-yellow-100 overflow-hidden">
+            <!-- Premium Blob Decorations -->
+            <div class="premium-blob dark medium" style="top: 15%; left: 10%;"></div>
+            <div class="premium-blob gold small delay-1" style="top: 60%; left: 5%;"></div>
+            <div class="premium-blob white large delay-2" style="top: 20%; right: 5%;"></div>
+            <div class="premium-blob gold medium delay-3" style="bottom: 10%; right: 20%;"></div>
+            
+            <!-- Seamless Top Transition from Hero -->
+            <div class="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-yellow-100/20 via-yellow-200/40 via-yellow-300/60 via-yellow-400/40 to-yellow-100/80"></div>
+            
+            <!-- Seamless Transition Elements -->
+            <div class="absolute inset-x-0 -top-20 h-40 bg-gradient-to-b from-transparent via-gray-50/30 to-gray-50/60"></div>
+            
+            <!-- Golden Gradient Bottom Transition -->
+            <div class="absolute inset-x-0 -bottom-32 h-64 bg-gradient-to-b from-yellow-100 via-yellow-200/80 via-yellow-400/60 via-yellow-600/40 to-yellow-800/20"></div>
+            
+
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="animate-float">
+                        <!-- Road Background Image - Full Height -->
+                        <div class="h-96 relative border-8 border-yellow-500 rounded-lg overflow-hidden" style="background: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+                        </div>
+                    </div>
+                    <div class="animate-fade-in">
+                        <h2 class="text-4xl font-bold mb-6 text-gradient">About Nirmal Sand & Infra</h2>
+                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                            With over two decades of excellence in construction and infrastructure development, 
+                            Nirmal Sand & Infra has established itself as a premier name in the industry. 
+                            We specialize in providing high-quality sand, construction materials, and comprehensive infrastructure solutions.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                                <h3 class="text-3xl font-bold text-yellow-600">500+</h3>
+                                <p class="text-gray-600">Projects Completed</p>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                                <h3 class="text-3xl font-bold text-yellow-600">20+</h3>
+                                <p class="text-gray-600">Years Experience</p>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                                <h3 class="text-3xl font-bold text-yellow-600">1000+</h3>
+                                <p class="text-gray-600">Happy Clients</p>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                                <h3 class="text-3xl font-bold text-yellow-600">50+</h3>
+                                <p class="text-gray-600">Expert Team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Do & Experience -->
+        <section class="relative py-32 bg-gradient-to-br from-gray-900 via-black via-gray-800 to-black overflow-hidden">
+            <!-- Premium Blob Decorations -->
+            <div class="premium-blob gold large delay-1" style="top: 10%; left: 8%;"></div>
+            <div class="premium-blob white medium" style="top: 40%; right: 12%;"></div>
+            <div class="premium-blob gold small delay-2" style="bottom: 15%; left: 15%;"></div>
+            <div class="premium-blob white small delay-3" style="bottom: 25%; right: 8%;"></div>
+            
+            <!-- Premium Dark Gradient Overlays -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-gray-900/60 to-black/80"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-black/30 to-gray-900/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-yellow-900/20 via-yellow-800/10 to-orange-900/15"></div>
+
+            
+
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-8 text-white">What We Do</h2>
+                    <p class="text-gray-300 text-xl max-w-4xl mx-auto leading-relaxed">
+                        Premium infrastructure solutions engineered with precision, delivered with excellence. 
+                        We transform visions into reality through cutting-edge technology and unmatched expertise.
+                    </p>
+                </div>
+                
+                <!-- Premium Services Grid -->
+                <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
+                    <!-- Road Construction -->
+                    <div class="group text-center hover:transform hover:scale-110 transition-all duration-500">
+                        <div class="mb-6">
+                            <i class="fas fa-road text-6xl text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">Road Construction</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Advanced highway and road infrastructure with smart traffic solutions</p>
+                    </div>
+                    
+                    <!-- Bridge Engineering -->
+                    <div class="group text-center hover:transform hover:scale-110 transition-all duration-500">
+                        <div class="mb-6">
+                            <svg class="w-16 h-16 mx-auto text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M2 18h20v2H2v-2zm0-4h2v2H2v-2zm18 0h2v2h-2v-2zm-8-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 8h2v2H6v-2zm4 0h4v2h-4v-2zm6 0h2v2h-2v-2zM4 12c0-4.4 3.6-8 8-8s8 3.6 8 8h-2c0-3.3-2.7-6-6-6s-6 2.7-6 6H4z"/>
+                                <path d="M3 16h18c.6 0 1-.4 1-1s-.4-1-1-1H3c-.6 0-1 .4-1 1s.4 1 1 1z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">Bridge Engineering</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Innovative bridge designs connecting communities with precision engineering</p>
+                    </div>
+                    
+                    <!-- Civil Construction -->
+                    <div class="group text-center hover:transform hover:scale-110 transition-all duration-500">
+                        <div class="mb-6">
+                            <i class="fas fa-building text-6xl text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">Civil Construction</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Comprehensive civil works from foundations to high-rise structures</p>
+                    </div>
+                    
+                    <!-- Smart Infrastructure -->
+                    <div class="group text-center hover:transform hover:scale-110 transition-all duration-500">
+                        <div class="mb-6">
+                            <svg class="w-16 h-16 mx-auto text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                <path d="M8 8h8v8H8V8zm2 2v4h4v-4h-4z"/>
+                                <circle cx="6" cy="6" r="2"/>
+                                <circle cx="18" cy="6" r="2"/>
+                                <circle cx="6" cy="18" r="2"/>
+                                <circle cx="18" cy="18" r="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">Water & Sewage</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Advanced water treatment and sewage management systems</p>
+                    </div>
+                    
+                    <!-- Water System -->
+                    <div class="group text-center hover:transform hover:scale-110 transition-all duration-500">
+                        <div class="mb-6">
+                            <i class="fas fa-tint text-6xl text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">Water System</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Advanced water treatment and distribution network solutions</p>
+                    </div>
+                    
+                    <!-- Material and Mining -->
+                    <div class="group text-center hover:transform hover:scale-110 transition-all duration-500">
+                        <div class="mb-6">
+                            <i class="fas fa-mountain text-6xl text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">Material & Mining</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Premium construction materials and sustainable mining operations</p>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+
+            
+
+        </section>
+
+        <!-- Our Expertise -->
+        <section id="services" class="relative py-32 bg-gradient-to-b from-yellow-50 via-white to-white overflow-hidden">
+            <!-- Premium Blob Decorations -->
+            <div class="premium-blob gold medium" style="top: 20%; left: 5%;"></div>
+            <div class="premium-blob dark small delay-1" style="top: 15%; right: 10%;"></div>
+            <div class="premium-blob gold large delay-2" style="bottom: 20%; right: 5%;"></div>
+            <div class="premium-blob dark medium delay-3" style="bottom: 30%; left: 8%;"></div>
+            
+            <!-- Seamless Top Transition from Golden -->
+            <div class="absolute -top-20 left-0 w-full h-40 bg-gradient-to-b from-transparent via-yellow-100/60 via-yellow-50/80 to-white"></div>
+            
+            <!-- Premium Construction Animation Background -->
+            <div class="construction-scene">
+                <svg viewBox="0 0 1200 300" class="construction-svg">
+                    <!-- Road Base -->
+                    <path d="M0,250 L1200,250 L1200,280 L0,280 Z" fill="#4a5568" class="road-base"/>
+                    <path d="M0,250 L1200,250 L1200,270 L0,270 Z" fill="#2d3748" class="road-surface"/>
+                    
+                    <!-- Road Markings -->
+                    <g class="road-markings">
+                        <rect x="100" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="200" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="300" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="400" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="500" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="600" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="700" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="800" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="900" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                        <rect x="1000" y="258" width="60" height="4" fill="#fbbf24" class="road-line"/>
+                    </g>
+                    
+
+                    
+                    <!-- Excavator -->
+                    <g class="excavator" transform="translate(0,0)">
+                        <!-- Base/Tracks -->
+                        <rect x="800" y="230" width="60" height="20" fill="#374151" rx="10"/>
+                        <rect x="805" y="235" width="50" height="10" fill="#6b7280" rx="5"/>
+                        
+                        <!-- Cabin -->
+                        <rect x="820" y="200" width="30" height="35" fill="#f59e0b" rx="5"/>
+                        <rect x="825" y="205" width="20" height="20" fill="#60a5fa" rx="2" opacity="0.7"/>
+                        
+                        <!-- Boom -->
+                        <line x1="835" y1="210" x2="780" y2="160" stroke="#d97706" stroke-width="8" stroke-linecap="round"/>
+                        
+                        <!-- Arm -->
+                        <line x1="780" y1="160" x2="750" y2="180" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+                        
+                        <!-- Bucket -->
+                        <path d="M750,180 L740,190 L755,195 L760,185 Z" fill="#6b7280"/>
+                    </g>
+                    
+                    <!-- Crane -->
+                    <g class="crane" transform="translate(0,0)">
+                        <!-- Base -->
+                        <rect x="950" y="220" width="40" height="30" fill="#f59e0b" rx="3"/>
+                        
+                        <!-- Mast -->
+                        <rect x="968" y="100" width="4" height="120" fill="#d97706"/>
+                        
+                        <!-- Jib -->
+                        <line x1="970" y1="110" x2="1100" y2="130" stroke="#d97706" stroke-width="3"/>
+                        
+                        <!-- Counter Jib -->
+                        <line x1="970" y1="110" x2="900" y2="120" stroke="#d97706" stroke-width="3"/>
+                        
+                        <!-- Hook -->
+                        <circle cx="1080" cy="140" r="3" fill="#374151"/>
+                        <line x1="1080" y1="130" x2="1080" y2="140" stroke="#374151" stroke-width="1"/>
+                    </g>
+                    
+                    <!-- Flyover Structure -->
+                    <g class="flyover">
+                        <!-- Pillars -->
+                        <rect x="400" y="150" width="15" height="100" fill="#6b7280"/>
+                        <rect x="600" y="140" width="15" height="110" fill="#6b7280"/>
+                        <rect x="800" y="145" width="15" height="105" fill="#6b7280"/>
+                        
+                        <!-- Bridge Deck -->
+                        <rect x="350" y="140" width="500" height="20" fill="#9ca3af" rx="2"/>
+                        <rect x="350" y="145" width="500" height="10" fill="#d1d5db" rx="1"/>
+                        
+                        <!-- Support Cables -->
+                        <line x1="407" y1="150" x2="380" y2="145" stroke="#6b7280" stroke-width="1" opacity="0.6"/>
+                        <line x1="407" y1="150" x2="430" y2="145" stroke="#6b7280" stroke-width="1" opacity="0.6"/>
+                        <line x1="607" y1="140" x2="580" y2="145" stroke="#6b7280" stroke-width="1" opacity="0.6"/>
+                        <line x1="607" y1="140" x2="630" y2="145" stroke="#6b7280" stroke-width="1" opacity="0.6"/>
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient">Our Expertise</h2>
+                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                        Leveraging cutting-edge technology and industry best practices to deliver exceptional results across all construction domains.
+                    </p>
+                </div>
+                
+                <!-- Modern Card Grid Design -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <!-- Design & Planning Card -->
+                    <div class="expertise-card group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-yellow-200">
+                        <div class="text-center">
+                            <div class="w-20 h-20 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-drafting-compass text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-yellow-600 transition-colors mb-4">Design & Planning</h3>
+                            <p class="text-gray-600 leading-relaxed">Revolutionary 3D architectural designs with AI-powered planning systems for precision engineering</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Construction Excellence Card -->
+                    <div class="expertise-card group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-yellow-200">
+                        <div class="text-center">
+                            <div class="w-20 h-20 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-hammer text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-yellow-600 transition-colors mb-4">Construction Excellence</h3>
+                            <p class="text-gray-600 leading-relaxed">Premium materials with nano-technology enhanced building techniques for superior quality</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Management Card -->
+                    <div class="expertise-card group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-yellow-200">
+                        <div class="text-center">
+                            <div class="w-20 h-20 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-tasks text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-yellow-600 transition-colors mb-4">Project Management</h3>
+                            <p class="text-gray-600 leading-relaxed">AI-driven project coordination with real-time progress tracking and smart scheduling</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Maintenance & Support Card -->
+                    <div class="expertise-card group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-yellow-200">
+                        <div class="text-center">
+                            <div class="w-20 h-20 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-tools text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-yellow-600 transition-colors mb-4">Maintenance & Support</h3>
+                            <p class="text-gray-600 leading-relaxed">24/7 IoT-enabled monitoring with predictive maintenance systems for optimal performance</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="relative py-20 bg-gradient-to-br from-gray-600 via-gray-700 to-gray-600 overflow-hidden">
+            <!-- Premium Blob Decorations -->
+            <div class="premium-blob gold large" style="top: 10%; left: 3%;"></div>
+            <div class="premium-blob white medium delay-1" style="top: 50%; right: 5%;"></div>
+            <div class="premium-blob gold small delay-2" style="bottom: 15%; left: 12%;"></div>
+            <div class="premium-blob white small delay-3" style="top: 25%; right: 20%;"></div>
+            
+            <!-- Seamless Top Transition -->
+            <div class="absolute -top-20 left-0 w-full h-40 bg-gradient-to-b from-white via-gray-300/80 via-gray-500/90 to-gray-700"></div>
+            
+
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Why Choose Us?</h2>
+                    <p class="text-gray-200 text-lg max-w-3xl mx-auto">
+                        Discover what sets us apart in the construction and infrastructure industry
+                    </p>
+                </div>
+                
+                <!-- Features Grid without Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <!-- Quality Assurance -->
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 mx-auto relative">
+                                <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                    <i class="fas fa-medal text-white text-2xl"></i>
+                                </div>
+                                <div class="absolute -inset-2 bg-gradient-to-br from-yellow-400/30 to-orange-500/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-yellow-400 transition-colors">Quality Assurance</h3>
+                        <p class="text-gray-200 leading-relaxed text-sm">ISO certified processes ensuring the highest standards in every project we undertake.</p>
+                        <div class="mt-4 flex justify-center">
+                            <div class="flex items-center space-x-2 text-yellow-600">
+                                <span class="text-xl font-bold">100%</span>
+                                <span class="text-xs font-medium">Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timely Delivery -->
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 mx-auto relative">
+                                <div class="w-full h-full bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                    <i class="fas fa-clock text-white text-2xl"></i>
+                                </div>
+                                <div class="absolute -inset-2 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">Timely Delivery</h3>
+                        <p class="text-gray-200 leading-relaxed text-sm">Proven track record of completing projects on time with efficient project management systems.</p>
+                        <div class="mt-4 flex justify-center">
+                            <div class="flex items-center space-x-2 text-blue-600">
+                                <span class="text-xl font-bold">98%</span>
+                                <span class="text-xs font-medium">On Time</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Competitive Price -->
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 mx-auto relative">
+                                <div class="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                    <i class="fas fa-dollar-sign text-white text-2xl"></i>
+                                </div>
+                                <div class="absolute -inset-2 bg-gradient-to-br from-purple-400/30 to-purple-600/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors">Competitive Price</h3>
+                        <p class="text-gray-200 leading-relaxed text-sm">Best value for money with transparent pricing and no hidden costs for all our services.</p>
+                        <div class="mt-4 flex justify-center">
+                            <div class="flex items-center space-x-2 text-purple-600">
+                                <span class="text-xl font-bold">30%</span>
+                                <span class="text-xs font-medium">Cost Savings</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Expert Team -->
+                    <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 mx-auto relative">
+                                <div class="w-full h-full bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                    <i class="fas fa-users text-white text-2xl"></i>
+                                </div>
+                                <div class="absolute -inset-2 bg-gradient-to-br from-red-400/30 to-red-600/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-red-400 transition-colors">Expert Team</h3>
+                        <p class="text-gray-200 leading-relaxed text-sm">Highly skilled professionals with decades of experience in construction and infrastructure.</p>
+                        <div class="mt-4 flex justify-center">
+                            <div class="flex items-center space-x-2 text-red-600">
+                                <span class="text-xl font-bold">50+</span>
+                                <span class="text-xs font-medium">Experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Eco-Friendly -->
+                    <!-- <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 mx-auto relative">
+                                <div class="w-full h-full bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                    <i class="fas fa-leaf text-white text-2xl"></i>
+                                </div>
+                                <div class="absolute -inset-2 bg-gradient-to-br from-green-400/30 to-emerald-500/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-green-400 transition-colors">Eco-Friendly</h3>
+                        <p class="text-gray-200 leading-relaxed text-sm">Sustainable construction practices that protect the environment for future generations.</p>
+                        <div class="mt-4 flex justify-center">
+                            <div class="flex items-center space-x-2 text-green-600">
+                                <span class="text-xl font-bold">50%</span>
+                                <span class="text-xs font-medium">Less Carbon</span>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <!-- 24/7 Support -->
+                    <!-- <div class="text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 mx-auto relative">
+                                <div class="w-full h-full bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                    <i class="fas fa-headset text-white text-2xl"></i>
+                                </div>
+                                <div class="absolute -inset-2 bg-gradient-to-br from-teal-400/30 to-teal-600/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-teal-400 transition-colors">24/7 Support</h3>
+                        <p class="text-gray-200 leading-relaxed text-sm">Round-the-clock customer support and maintenance services for all your construction needs.</p>
+                        <div class="mt-4 flex justify-center">
+                            <div class="flex items-center space-x-2 text-teal-600">
+                                <span class="text-xl font-bold">24/7</span>
+                                <span class="text-xs font-medium">Available</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <!-- Bottom Stats Bar -->
+                <div class="mt-20 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl p-8 text-white">
+                    <div class="grid md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-3xl font-bold mb-2">20+</div>
+                            <div class="text-yellow-100">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold mb-2">500+</div>
+                            <div class="text-yellow-100">Projects Completed</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold mb-2">1000+</div>
+                            <div class="text-yellow-100">Happy Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold mb-2">50+</div>
+                            <div class="text-yellow-100">Expert Team</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Running Projects Carousel -->
+        <section id="projects" class="relative py-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-yellow-100 overflow-hidden">
+            <!-- Premium Blob Decorations -->
+            <div class="premium-blob dark large delay-1" style="top: 15%; left: 5%;"></div>
+            <div class="premium-blob gold medium" style="top: 60%; right: 8%;"></div>
+            <div class="premium-blob white small delay-2" style="top: 30%; right: 25%;"></div>
+            <div class="premium-blob dark medium delay-3" style="bottom: 20%; left: 15%;"></div>
+            
+            <!-- Seamless Top Transition -->
+            <div class="absolute -top-20 left-0 w-full h-40 bg-gradient-to-b from-white via-yellow-50/60 via-orange-50/60 to-yellow-100/80"></div>
+            
+
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">Our Running Projects</h2>
+                    <p class="text-gray-700 text-lg max-w-3xl mx-auto">Currently executing world-class projects across various sectors</p>
+                </div>
+                
+                <!-- Projects Carousel Container -->
+                <div class="relative">
+                    <!-- Left Scroll Button -->
+                    <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl border border-yellow-300 rounded-full p-3 transition-all duration-300 hover:bg-yellow-50 hover:border-yellow-400">
+                        <i class="fas fa-chevron-left text-gray-600 hover:text-yellow-600 text-lg"></i>
+                    </button>
+                    
+                    <!-- Right Scroll Button -->
+                    <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl border border-yellow-300 rounded-full p-3 transition-all duration-300 hover:bg-yellow-50 hover:border-yellow-400">
+                        <i class="fas fa-chevron-right text-gray-600 hover:text-yellow-600 text-lg"></i>
+                    </button>
+                    
+                    <!-- Projects Carousel -->
+                    <div id="projectsCarousel" class="project-carousel flex space-x-6 overflow-x-auto pb-4 px-12 scroll-smooth">
+                        <!-- Project 1: Skyline Residency -->
+                        <div class="min-w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-yellow-200">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     alt="Skyline Residency" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <div class="absolute top-3 right-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    75%
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold mb-2 text-gray-800 group-hover:text-yellow-600 transition-colors">Skyline Residency</h3>
+                                <p class="text-gray-600 text-sm mb-3 leading-relaxed">Luxury residential complex with modern amenities and smart home technology.</p>
+                                <div class="mb-3">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-600">Progress</span>
+                                        <span class="text-xs font-bold text-yellow-600">75%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs text-gray-500">
+                                        <i class="fas fa-calendar-alt mr-1"></i>
+                                        Mar 2024
+                                    </div>
+                                    <button class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2: Metro Bridge -->
+                        <div class="min-w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-yellow-200">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     alt="Metro Bridge Project" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <div class="absolute top-3 right-3 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    60%
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold mb-2 text-gray-800 group-hover:text-yellow-600 transition-colors">Metro Bridge</h3>
+                                <p class="text-gray-600 text-sm mb-3 leading-relaxed">Advanced metro connectivity bridge spanning 2.5 km with state-of-the-art engineering.</p>
+                                <div class="mb-3">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-600">Progress</span>
+                                        <span class="text-xs font-bold text-yellow-600">60%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-blue-400 to-blue-500 h-2 rounded-full transition-all duration-1000" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs text-gray-500">
+                                        <i class="fas fa-calendar-alt mr-1"></i>
+                                        Jun 2024
+                                    </div>
+                                    <button class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3: Grand Mall Complex -->
+                        <div class="min-w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-yellow-200">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1555636222-cae831e670b3?q=80&w=1177&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     alt="Grand Mall Complex" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <div class="absolute top-3 right-3 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    40%
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold mb-2 text-gray-800 group-hover:text-yellow-600 transition-colors">Grand Mall</h3>
+                                <p class="text-gray-600 text-sm mb-3 leading-relaxed">Premium shopping destination with 200+ stores, multiplex cinema, and dining.</p>
+                                <div class="mb-3">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-600">Progress</span>
+                                        <span class="text-xs font-bold text-yellow-600">40%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 h-2 rounded-full transition-all duration-1000" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs text-gray-500">
+                                        <i class="fas fa-calendar-alt mr-1"></i>
+                                        Sep 2024
+                                    </div>
+                                    <button class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 4: Medical Center -->
+                        <div class="min-w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-yellow-200">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     alt="Medical Center" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    85%
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold mb-2 text-gray-800 group-hover:text-yellow-600 transition-colors">Medical Center</h3>
+                                <p class="text-gray-600 text-sm mb-3 leading-relaxed">State-of-the-art healthcare facility with 200 beds and advanced surgical suites.</p>
+                                <div class="mb-3">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-600">Progress</span>
+                                        <span class="text-xs font-bold text-yellow-600">85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs text-gray-500">
+                                        <i class="fas fa-calendar-alt mr-1"></i>
+                                        Jan 2024
+                                    </div>
+                                    <button class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 5: Smart Office Complex -->
+                        <div class="min-w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-yellow-200">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     alt="Smart Office Complex" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <div class="absolute top-3 right-3 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    30%
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold mb-2 text-gray-800 group-hover:text-yellow-600 transition-colors">Smart Office</h3>
+                                <p class="text-gray-600 text-sm mb-3 leading-relaxed">Next-generation office spaces with IoT integration and sustainable design.</p>
+                                <div class="mb-3">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-600">Progress</span>
+                                        <span class="text-xs font-bold text-yellow-600">30%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-purple-400 to-purple-500 h-2 rounded-full transition-all duration-1000" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs text-gray-500">
+                                        <i class="fas fa-calendar-alt mr-1"></i>
+                                        Dec 2024
+                                    </div>
+                                    <button class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </section>
+
+        <!-- Our Clients -->
+        <section class="py-16 bg-white relative overflow-hidden">
+            <!-- Premium Blob Decorations -->
+            <div class="premium-blob gold medium" style="top: 20%; left: 8%;"></div>
+            <div class="premium-blob dark small delay-1" style="top: 70%; right: 12%;"></div>
+            <div class="premium-blob gold large delay-2" style="bottom: 10%; right: 5%;"></div>
+            
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient">Our Valued Clients</h2>
+                    <p class="text-gray-600 text-lg">Trusted by leading organizations across various industries</p>
+                </div>
+                
+                <!-- Client Logos Carousel -->
+                <div class="relative">
+                    <!-- Left Scroll Button -->
+                    <button id="clientScrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl border border-yellow-300 rounded-full p-3 transition-all duration-300 hover:bg-yellow-50 hover:border-yellow-400">
+                        <i class="fas fa-chevron-left text-gray-600 hover:text-yellow-600 text-lg"></i>
+                    </button>
+                    
+                    <!-- Right Scroll Button -->
+                    <button id="clientScrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl border border-yellow-300 rounded-full p-3 transition-all duration-300 hover:bg-yellow-50 hover:border-yellow-400">
+                        <i class="fas fa-chevron-right text-gray-600 hover:text-yellow-600 text-lg"></i>
+                    </button>
+                    
+                    <!-- Clients Carousel -->
+                    <div id="clientsCarousel" class="flex space-x-12 overflow-x-auto pb-4 px-12 scroll-smooth">
+                        <!-- Maruti -->
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl1.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl2.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl3.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl1.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl2.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl3.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl1.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+                        <div class="min-w-48 flex  items-center justify-center group">
+                            <img src="/images/cl2.jpg">
+                            <!-- <h4 class="font-semibold text-gray-800 text-center">Maruti Suzuki</h4> -->
+                        </div>
+
+                    </div>
+                </div>
+                
+
+            </div>
+        </section>
+
+        <!-- Dream Project Coming Soon -->
+        <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-yellow-50 bg-logo">
+            <!-- Premium Light Background with Subtle Patterns -->
+            <!-- <div class="absolute inset-0 bg-gradient-to-r from-yellow-50/30 via-white/50 to-orange-50/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-100/20 to-transparent"></div> -->
+            
+            <!-- Large Background Logo - More Visible -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-8 z-0">
+                <!-- <img src="images/bigbagSandLogo.png" alt="Bigbag Sand Logo" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0.12;z-index:0;" /> -->
+                
+            </div>
+            
+            <!-- Subtle Geometric Patterns -->
+            <!-- <div class="absolute top-10 left-10 w-32 h-32 border border-yellow-200 rounded-full opacity-20"></div>
+            <div class="absolute bottom-10 right-10 w-24 h-24 border border-orange-200 rounded-full opacity-20"></div>
+            <div class="absolute top-1/2 left-5 w-16 h-16 border border-yellow-300 rotate-45 opacity-15"></div>
+            <div class="absolute top-1/4 right-5 w-20 h-20 border border-orange-300 rotate-12 opacity-15"></div> -->
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <!-- Premium Button at Top -->
+                <div class="text-center mb-8">
+                    <button class="relative bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg shadow-2xl hover:scale-110 transition-all duration-500 overflow-hidden group border-2 border-white/20 backdrop-blur-sm glow-effect upcoming-product-glow">
+                        <!-- Animated Background -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl animate-pulse"></div>
+                        
+                        <!-- Shimmer Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></div>
+                        
+                        <!-- Button Content -->
+                        <span class="relative z-10 flex items-center space-x-3">
+                            <svg class="w-6 h-6 animate-bounce group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span class="font-bold tracking-wide">Upcoming Product</span>
+                            <svg class="w-6 h-6 animate-bounce group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </span>
+                        
+                        <!-- Floating Particles -->
+                        <!-- <div class="absolute top-2 left-4 w-1 h-1 bg-white rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute bottom-3 right-6 w-1.5 h-1.5 bg-white rounded-full animate-ping opacity-40" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute top-1/2 right-4 w-1 h-1 bg-white rounded-full animate-ping opacity-50" style="animation-delay: 1s;"></div> -->
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center min-h-96">
+                    <!-- Left Side - Product Info -->
+                    <div class="text-left">
+                        
+                        <h2 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6 animate-float">
+                            Bigbag Sand
+                        </h2>
+                        
+                        <p class="text-xl md:text-2xl text-gray-700 mb-4 leading-relaxed">
+                            Premium quality construction sand delivered in convenient, eco-friendly big bags for maximum efficiency and minimal waste.
+                        </p>
+                        
+                        <!-- <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Revolutionizing sand delivery with our innovative packaging system that ensures consistent quality, easy handling, and sustainable construction practices.
+                        </p> -->
+                        
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <div class="bg-white/80 backdrop-blur-sm border border-yellow-200 rounded-lg px-4 py-2 text-center shadow-sm hover:shadow-md transition-shadow">
+                                <div class="text-lg font-bold text-yellow-600">Premium</div>
+                                <div class="text-gray-600 text-sm">Quality</div>
+                            </div>
+                            <div class="bg-white/80 backdrop-blur-sm border border-green-200 rounded-lg px-4 py-2 text-center shadow-sm hover:shadow-md transition-shadow">
+                                <div class="text-lg font-bold text-green-600">Eco-Friendly</div>
+                                <div class="text-gray-600 text-sm">Packaging</div>
+                            </div>
+                            <div class="bg-white/80 backdrop-blur-sm border border-blue-200 rounded-lg px-4 py-2 text-center shadow-sm hover:shadow-md transition-shadow">
+                                <div class="text-lg font-bold text-blue-600">Easy</div>
+                                <div class="text-gray-600 text-sm">Handling</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Product Image -->
+                    <div class="flex justify-center md:justify-end items-center">
+                        <div class="relative animate-float flex justify-center md:justify-end w-full">
+                            <img src="/images/bigbagBagImage.png" alt="Floating Image" class="max-w-[70%]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Nirmal Sand & Infra</h3>
+                            <p class="text-yellow-500">Premium Construction</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Leading construction and infrastructure company committed to delivering excellence 
+                        through innovative solutions, quality materials, and sustainable practices. 
+                        Building the future, one project at a time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-yellow-500 transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-yellow-500 transition-colors">Services</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-yellow-500 transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-yellow-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">123 Construction Avenue</p>
+                                <p class="text-gray-300">Business District, City 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-yellow-500"></i>
+                            <p class="text-gray-300">+91 98765 43210</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-yellow-500"></i>
+                            <p class="text-gray-300">info@nirmalsandinfra.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2023 Nirmal Sand & Infra. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let carouselInterval;
+        let isUserInteracting = false;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            isUserInteracting = true;
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function previousSlide() {
+            isUserInteracting = true;
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function goToSlide(slideIndex) {
+            isUserInteracting = true;
+            currentSlide = slideIndex;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function startAutoPlay() {
+            carouselInterval = setInterval(() => {
+                if (!isUserInteracting) {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateCarousel();
+                }
+            }, 12000); // 12 seconds for slower transitions
+        }
+
+        function resetAutoPlay() {
+            clearInterval(carouselInterval);
+            setTimeout(() => {
+                isUserInteracting = false;
+                startAutoPlay();
+            }, 5000); // Resume auto-play after 5 seconds
+        }
+
+        // Touch support for mobile
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+
+        const carouselContainer = document.querySelector('.carousel-container');
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
+            isUserInteracting = true;
+        });
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Check if horizontal swipe is more significant than vertical
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }
+            
+            isDragging = false;
+            resetAutoPlay();
+        });
+
+        // Mouse drag support for desktop
+        let mouseStartX = 0;
+        let isMouseDragging = false;
+
+        carouselContainer.addEventListener('mousedown', (e) => {
+            mouseStartX = e.clientX;
+            isMouseDragging = true;
+            isUserInteracting = true;
+            carouselContainer.style.cursor = 'grabbing';
+        });
+
+        carouselContainer.addEventListener('mousemove', (e) => {
+            if (!isMouseDragging) return;
+            e.preventDefault();
+        });
+
+        carouselContainer.addEventListener('mouseup', (e) => {
+            if (!isMouseDragging) return;
+            
+            const mouseEndX = e.clientX;
+            const diffX = mouseStartX - mouseEndX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }
+            
+            isMouseDragging = false;
+            carouselContainer.style.cursor = 'grab';
+            resetAutoPlay();
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            if (isMouseDragging) {
+                isMouseDragging = false;
+                carouselContainer.style.cursor = 'grab';
+            }
+        });
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            carouselContainer.style.cursor = 'grab';
+            startAutoPlay();
+            updateCarousel();
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+
+        // Project carousel scroll functionality
+        const projectCarousel = document.getElementById('projectsCarousel');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+        let isScrolling = false;
+        let autoScrollInterval;
+
+        // Scroll button functionality
+        scrollLeftBtn.addEventListener('click', () => {
+            isScrolling = true;
+            const scrollAmount = 340; // Width of smaller card plus gap
+            projectCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            resetAutoScroll();
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            isScrolling = true;
+            const scrollAmount = 340; // Width of smaller card plus gap
+            projectCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            resetAutoScroll();
+        });
+
+        // Manual scroll detection
+        projectCarousel.addEventListener('scroll', () => {
+            isScrolling = true;
+            clearTimeout(window.scrollTimeout);
+            window.scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+            updateScrollButtons();
+        });
+
+        // Update scroll button visibility
+        function updateScrollButtons() {
+            const isAtStart = projectCarousel.scrollLeft <= 10;
+            const isAtEnd = projectCarousel.scrollLeft + projectCarousel.clientWidth >= projectCarousel.scrollWidth - 10;
+            
+            scrollLeftBtn.style.opacity = isAtStart ? '0.5' : '1';
+            scrollRightBtn.style.opacity = isAtEnd ? '0.5' : '1';
+            scrollLeftBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+            scrollRightBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+        }
+
+        // Auto-scroll functionality
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                if (!isScrolling && projectCarousel) {
+                    const scrollAmount = 340;
+                    const isAtEnd = projectCarousel.scrollLeft + projectCarousel.clientWidth >= projectCarousel.scrollWidth - 10;
+                    
+                    if (isAtEnd) {
+                        projectCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        projectCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                }
+            }, 5000);
+        }
+
+        function resetAutoScroll() {
+            clearInterval(autoScrollInterval);
+            setTimeout(() => {
+                isScrolling = false;
+                startAutoScroll();
+            }, 3000);
+        }
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        projectCarousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            isScrolling = true;
+        });
+
+        projectCarousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            resetAutoScroll();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                const scrollAmount = 340;
+                if (diff > 0) {
+                    // Swipe left - scroll right
+                    projectCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                } else {
+                    // Swipe right - scroll left
+                    projectCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }
+
+        // Initialize scroll functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            updateScrollButtons();
+            startAutoScroll();
+            
+            // View Details button functionality
+            document.querySelectorAll('button:contains("View Details")').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const projectCard = e.target.closest('.min-w-96');
+                    const projectTitle = projectCard.querySelector('h3').textContent;
+                    alert(`Opening details for: ${projectTitle}\n\nThis would typically open a detailed project page or modal with comprehensive information about the project.`);
+                });
+            });
+        });
+
+        // Client carousel scroll functionality
+        const clientsCarousel = document.getElementById('clientsCarousel');
+        const clientScrollLeftBtn = document.getElementById('clientScrollLeft');
+        const clientScrollRightBtn = document.getElementById('clientScrollRight');
+        let isClientScrolling = false;
+        let clientAutoScrollInterval;
+
+        // Client scroll button functionality
+        if (clientScrollLeftBtn && clientScrollRightBtn && clientsCarousel) {
+            clientScrollLeftBtn.addEventListener('click', () => {
+                isClientScrolling = true;
+                const scrollAmount = 300; // Width of client card plus gap
+                clientsCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                resetClientAutoScroll();
+            });
+
+            clientScrollRightBtn.addEventListener('click', () => {
+                isClientScrolling = true;
+                const scrollAmount = 300; // Width of client card plus gap
+                clientsCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                resetClientAutoScroll();
+            });
+
+            // Manual client scroll detection
+            clientsCarousel.addEventListener('scroll', () => {
+                isClientScrolling = true;
+                clearTimeout(window.clientScrollTimeout);
+                window.clientScrollTimeout = setTimeout(() => {
+                    isClientScrolling = false;
+                }, 1000);
+                updateClientScrollButtons();
+            });
+
+            // Update client scroll button visibility
+            function updateClientScrollButtons() {
+                const isAtStart = clientsCarousel.scrollLeft <= 10;
+                const isAtEnd = clientsCarousel.scrollLeft + clientsCarousel.clientWidth >= clientsCarousel.scrollWidth - 10;
+                
+                clientScrollLeftBtn.style.opacity = isAtStart ? '0.5' : '1';
+                clientScrollRightBtn.style.opacity = isAtEnd ? '0.5' : '1';
+                clientScrollLeftBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+                clientScrollRightBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+            }
+
+            // Client auto-scroll functionality
+            function startClientAutoScroll() {
+                clientAutoScrollInterval = setInterval(() => {
+                    if (!isClientScrolling && clientsCarousel) {
+                        const scrollAmount = 300;
+                        const isAtEnd = clientsCarousel.scrollLeft + clientsCarousel.clientWidth >= clientsCarousel.scrollWidth - 10;
+                        
+                        if (isAtEnd) {
+                            clientsCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            clientsCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        }
+                    }
+                }, 6000); // Auto-scroll every 6 seconds
+            }
+
+            function resetClientAutoScroll() {
+                clearInterval(clientAutoScrollInterval);
+                setTimeout(() => {
+                    isClientScrolling = false;
+                    startClientAutoScroll();
+                }, 3000);
+            }
+
+            // Client touch/swipe support for mobile
+            let clientTouchStartX = 0;
+            let clientTouchEndX = 0;
+
+            clientsCarousel.addEventListener('touchstart', (e) => {
+                clientTouchStartX = e.changedTouches[0].screenX;
+                isClientScrolling = true;
+            });
+
+            clientsCarousel.addEventListener('touchend', (e) => {
+                clientTouchEndX = e.changedTouches[0].screenX;
+                handleClientSwipe();
+                resetClientAutoScroll();
+            });
+
+            function handleClientSwipe() {
+                const swipeThreshold = 50;
+                const diff = clientTouchStartX - clientTouchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    const scrollAmount = 300;
+                    if (diff > 0) {
+                        // Swipe left - scroll right
+                        clientsCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    } else {
+                        // Swipe right - scroll left
+                        clientsCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    }
+                }
+            }
+
+            // Initialize client scroll functionality
+            updateClientScrollButtons();
+            startClientAutoScroll();
+        }
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989ce1ef72d9a7ce',t:'MTc1OTY2NjkyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

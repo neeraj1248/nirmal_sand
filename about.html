@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Nirmal Sand and Infra</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
+          <span class="logo-text">Nirmal Sand and Infra</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">About Us</h1>
+      <p class="page-subtitle">Building Excellence Since Inception</p>
+    </div>
+  </section>
+
+  <!-- Company Overview -->
+  <section class="company-overview">
+    <div class="container">
+      <div class="overview-content">
+        <div class="overview-text">
+          <h2>Our Story</h2>
+          <p>Nirmal Sand and Infra was founded with a vision to transform the construction and infrastructure landscape in India. Since our inception, we have been committed to delivering exceptional quality, innovative solutions, and sustainable construction practices.</p>
+          
+          <p>Our journey began with a small team of dedicated professionals who shared a common goal: to build structures that stand the test of time while contributing positively to society and the environment. Today, we have grown into a leading construction company with a diverse portfolio spanning commercial, residential, industrial, and infrastructure projects.</p>
+
+          <div class="company-values">
+            <div class="value-item">
+              <i class="fas fa-eye"></i>
+              <div>
+                <h3>Vision</h3>
+                <p>To be the most trusted and innovative construction company, setting new standards in quality and sustainability.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <i class="fas fa-bullseye"></i>
+              <div>
+                <h3>Mission</h3>
+                <p>To deliver exceptional construction solutions that exceed client expectations while contributing to sustainable development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-image">
+          <img src="assets/about-company.jpg" alt="Company Overview">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Details -->
+  <section class="company-details">
+    <div class="container">
+      <div class="details-grid">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Headquarters</h3>
+          <p>Mumbai, Maharashtra</p>
+          <span class="detail-tag">India</span>
+        </div>
+        
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Established</h3>
+          <p>1999</p>
+          <span class="detail-tag">25+ Years</span>
+        </div>
+        
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Team Size</h3>
+          <p>500+ Employees</p>
+          <span class="detail-tag">Skilled Professionals</span>
+        </div>
+        
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Presence</h3>
+          <p>Pan India</p>
+          <span class="detail-tag">Multiple States</span>
+        </div>
+        
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Certifications</h3>
+          <p>ISO 9001:2015</p>
+          <span class="detail-tag">Quality Assured</span>
+        </div>
+        
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sustainability</h3>
+          <p>Green Building</p>
+          <span class="detail-tag">Eco-Friendly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Growth Chart -->
+  <section class="growth-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Growth Journey</h2>
+        <p class="section-subtitle">Milestones of Excellence</p>
+      </div>
+      
+      <div class="growth-chart">
+        <div class="chart-container">
+          <canvas id="growthChart" width="800" height="400"></canvas>
+        </div>
+        
+        <div class="growth-stats">
+          <div class="stat-item">
+            <div class="stat-number counter" data-target="150">0</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number counter" data-target="500">0</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number counter" data-target="25">0</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number counter" data-target="1000">0</div>
+            <div class="stat-label">Skilled Workers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Company Timeline</h2>
+        <p class="section-subtitle">Key Milestones in Our Journey</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1999</div>
+          <div class="timeline-content">
+            <h3>Company Founded</h3>
+            <p>Nirmal Sand and Infra was established with a vision to excel in construction and infrastructure development.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">2005</div>
+          <div class="timeline-content">
+            <h3>First Major Project</h3>
+            <p>Completed our first major commercial project, establishing our reputation for quality and reliability.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">2010</div>
+          <div class="timeline-content">
+            <h3>Expansion Phase</h3>
+            <p>Expanded operations to multiple states and diversified into residential and infrastructure projects.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-content">
+            <h3>ISO Certification</h3>
+            <p>Achieved ISO 9001:2015 certification, reinforcing our commitment to quality management systems.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-content">
+            <h3>Sustainable Construction</h3>
+            <p>Launched green building initiatives and adopted sustainable construction practices across all projects.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+            <h3>Digital Transformation</h3>
+            <p>Embraced digital technologies and modern construction methodologies to enhance efficiency and quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
+            <span>Nirmal Sand and Infra</span>
+          </div>
+          <p class="footer-description">
+            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="clients.html">Our Clients</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Commercial Construction</a></li>
+            <li><a href="#">Residential Projects</a></li>
+            <li><a href="#">Infrastructure Development</a></li>
+            <li><a href="#">Industrial Construction</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Construction Street, Mumbai, Maharashtra</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@nirmalsandinfra.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

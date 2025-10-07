@@ -1,0 +1,522 @@
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .carousel-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .brief-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .achievements {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .services-grid,
+  .expertise-grid,
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .project-slide {
+    min-width: 300px;
+  }
+
+  .dream-title {
+    font-size: 2.5rem;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background-color: var(--white-color);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: var(--shadow);
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero-carousel {
+    height: 70vh;
+  }
+
+  .carousel-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .carousel-content p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .achievements {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .services-grid,
+  .expertise-grid,
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-slide {
+    min-width: 280px;
+    margin-right: 20px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  .dream-title {
+    font-size: 2rem;
+  }
+
+  .dream-description {
+    font-size: 1rem;
+  }
+
+  .coming-soon-text {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Projects Page */
+  .projects-filter {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Project Details */
+  .project-content {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnail-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Clients Page */
+  .clients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gallery Page */
+  .gallery-filter {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  /* Team Page */
+  .leadership-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .leader-achievements {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* About Page */
+  .overview-content {
+    grid-template-columns: 1fr;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .growth-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .timeline-year {
+    margin-bottom: 15px;
+  }
+
+  /* Contact Page */
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    order: -1;
+  }
+
+  /* Careers Page */
+  .career-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .hero-carousel {
+    height: 60vh;
+  }
+
+  .carousel-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .achievement-number {
+    font-size: 2rem;
+  }
+
+  .service-icon,
+  .reason-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .service-icon i,
+  .reason-icon i {
+    font-size: 1.5rem;
+  }
+
+  .project-slide {
+    min-width: 250px;
+  }
+
+  .dream-title {
+    font-size: 1.5rem;
+  }
+
+  .coming-soon-text {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .client-logo {
+    min-width: 150px;
+    height: 80px;
+    margin: 0 15px;
+  }
+
+  .client-logo img {
+    max-width: 120px;
+    max-height: 50px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Gallery adjustments */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Details grid adjustments */
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* Form adjustments */
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.9rem;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-carousel {
+    height: 100vh;
+  }
+
+  .page-header {
+    padding: 120px 0 60px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .footer,
+  .carousel-btn,
+  .cta-button,
+  .hamburger {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .page-header {
+    margin-top: 0;
+    padding: 20px 0;
+    background: none !important;
+    color: black !important;
+  }
+
+  section {
+    padding: 20px 0;
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    font-size: 18pt;
+    color: black !important;
+  }
+
+  .news-item,
+  .service-card,
+  .project-card {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .carousel-slide {
+    transition: none;
+  }
+
+  .floating-elements .element {
+    animation: none;
+  }
+
+  .clients-track {
+    animation: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-dark: #ffffff;
+    --text-light: #cccccc;
+    --white-color: #1a1a1a;
+    --border-color: #444444;
+  }
+
+  body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .header {
+    background: #1a1a1a;
+    border-bottom: 1px solid #444;
+  }
+
+  .service-card,
+  .expertise-item,
+  .reason-item,
+  .news-item,
+  .client-logo {
+    background: #2a2a2a;
+    color: #ffffff;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.nav-link:focus,
+.cta-button:focus,
+.submit-btn:focus,
+.apply-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 8px;
+  text-decoration: none;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}

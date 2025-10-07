@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - Nirmal Sand and Infra</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
+          <span class="logo-text">Nirmal Sand and Infra</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="careers.html" class="nav-link active">Careers</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Careers</h1>
+      <p class="page-subtitle">Join Our Team of Excellence</p>
+    </div>
+  </section>
+
+  <!-- Career Intro -->
+  <section class="career-intro">
+    <div class="container">
+      <div class="intro-content">
+        <h2>Build Your Career with Us</h2>
+        <p>At Nirmal Sand and Infra, we believe our people are our greatest asset. We offer exciting career opportunities for talented individuals who share our passion for excellence in construction and infrastructure development.</p>
+        
+        <div class="career-benefits">
+          <div class="benefit-item">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Professional Growth</h3>
+            <p>Continuous learning and development opportunities</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-users"></i>
+            <h3>Collaborative Environment</h3>
+            <p>Work with industry experts and innovative teams</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-trophy"></i>
+            <h3>Recognition & Rewards</h3>
+            <p>Performance-based incentives and recognition programs</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Work-Life Balance</h3>
+            <p>Flexible working arrangements and employee wellness</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Openings -->
+  <section class="job-openings">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Current Job Openings</h2>
+        <p class="section-subtitle">Explore Exciting Career Opportunities</p>
+      </div>
+      
+      <div class="jobs-grid">
+        <div class="job-card">
+          <div class="job-header">
+            <h3>Senior Civil Engineer</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</span>
+              <span><i class="fas fa-briefcase"></i> 5-8 years experience</span>
+              <span><i class="fas fa-graduation-cap"></i> B.Tech/M.Tech Civil</span>
+            </div>
+            <p class="job-description">
+              We are looking for an experienced Civil Engineer to join our project team. The candidate will be responsible for planning, designing, and overseeing construction projects.
+            </p>
+            <div class="job-skills">
+              <span class="skill-tag">AutoCAD</span>
+              <span class="skill-tag">Project Management</span>
+              <span class="skill-tag">Structural Design</span>
+            </div>
+          </div>
+          <div class="job-footer">
+            <button class="apply-btn" onclick="openJobModal('Senior Civil Engineer')">
+              <i class="fas fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <h3>Project Manager</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Delhi, NCR</span>
+              <span><i class="fas fa-briefcase"></i> 8-12 years experience</span>
+              <span><i class="fas fa-graduation-cap"></i> Engineering/MBA</span>
+            </div>
+            <p class="job-description">
+              Seeking an experienced Project Manager to lead large-scale construction projects from inception to completion, ensuring quality, timeline, and budget adherence.
+            </p>
+            <div class="job-skills">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Budget Management</span>
+              <span class="skill-tag">Risk Assessment</span>
+            </div>
+          </div>
+          <div class="job-footer">
+            <button class="apply-btn" onclick="openJobModal('Project Manager')">
+              <i class="fas fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <h3>Architect</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</span>
+              <span><i class="fas fa-briefcase"></i> 3-6 years experience</span>
+              <span class="fas fa-graduation-cap"></i> B.Arch/M.Arch</span>
+            </div>
+            <p class="job-description">
+              Creative Architect needed to design innovative and sustainable building solutions for commercial and residential projects.
+            </p>
+            <div class="job-skills">
+              <span class="skill-tag">3D Modeling</span>
+              <span class="skill-tag">Sustainable Design</span>
+              <span class="skill-tag">Building Codes</span>
+            </div>
+          </div>
+          <div class="job-footer">
+            <button class="apply-btn" onclick="openJobModal('Architect')">
+              <i class="fas fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <h3>Safety Officer</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</span>
+              <span><i class="fas fa-briefcase"></i> 4-7 years experience</span>
+              <span><i class="fas fa-graduation-cap"></i> Safety Certification</span>
+            </div>
+            <p class="job-description">
+              Experienced Safety Officer required to implement and monitor safety protocols across construction sites, ensuring compliance with regulations.
+            </p>
+            <div class="job-skills">
+              <span class="skill-tag">Safety Audits</span>
+              <span class="skill-tag">Risk Management</span>
+              <span class="skill-tag">Compliance</span>
+            </div>
+          </div>
+          <div class="job-footer">
+            <button class="apply-btn" onclick="openJobModal('Safety Officer')">
+              <i class="fas fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <h3>Quantity Surveyor</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</span>
+              <span><i class="fas fa-briefcase"></i> 3-5 years experience</span>
+              <span><i class="fas fa-graduation-cap"></i> Civil Engineering</span>
+            </div>
+            <p class="job-description">
+              Detail-oriented Quantity Surveyor needed for cost estimation, material planning, and project financial management.
+            </p>
+            <div class="job-skills">
+              <span class="skill-tag">Cost Estimation</span>
+              <span class="skill-tag">Material Planning</span>
+              <span class="skill-tag">Contract Management</span>
+            </div>
+          </div>
+          <div class="job-footer">
+            <button class="apply-btn" onclick="openJobModal('Quantity Surveyor')">
+              <i class="fas fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <h3>Site Supervisor</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
+              <span><i class="fas fa-briefcase"></i> 2-4 years experience</span>
+              <span><i class="fas fa-graduation-cap"></i> Diploma/Engineering</span>
+            </div>
+            <p class="job-description">
+              Hands-on Site Supervisor required to oversee daily construction activities, coordinate with teams, and ensure quality standards.
+            </p>
+            <div class="job-skills">
+              <span class="skill-tag">Team Management</span>
+              <span class="skill-tag">Quality Control</span>
+              <span class="skill-tag">Site Coordination</span>
+            </div>
+          </div>
+          <div class="job-footer">
+            <button class="apply-btn" onclick="openJobModal('Site Supervisor')">
+              <i class="fas fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Application Modal -->
+  <div class="job-modal" id="jobModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalJobTitle">Apply for Position</h2>
+        <span class="modal-close" onclick="closeJobModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Please send your CV and cover letter to our HR team:</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>careers@nirmalsandinfra.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+91 98765 43210</span>
+          </div>
+        </div>
+        <p class="modal-note">
+          <strong>Note:</strong> Please mention the position title in the subject line of your email. 
+          We will review your application and contact you if your profile matches our requirements.
+        </p>
+        <div class="modal-actions">
+          <a href="mailto:careers@nirmalsandinfra.com" class="email-btn">
+            <i class="fas fa-envelope"></i>
+            Send Email
+          </a>
+          <button class="close-btn" onclick="closeJobModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
+            <span>Nirmal Sand and Infra</span>
+          </div>
+          <p class="footer-description">
+            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="clients.html">Our Clients</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Commercial Construction</a></li>
+            <li><a href="#">Residential Projects</a></li>
+            <li><a href="#">Infrastructure Development</a></li>
+            <li><a href="#">Industrial Construction</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Construction Street, Mumbai, Maharashtra</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@nirmalsandinfra.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/careers.js"></script>
+</body>
+</html>

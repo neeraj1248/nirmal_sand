@@ -1,0 +1,99 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #292929;
+}
+
+/* Header */
+header {
+    background-color: #292929;
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px; /* Adjust as needed */
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Sections */
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+section h2 {
+    color: #eba500;
+    margin-bottom: 20px;
+}
+
+/* Expertise Section */
+#our-expertise .expertise-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#our-expertise .expertise-item {
+    width: 300px; /* Adjust as needed */
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+#our-expertise .expertise-item img {
+    height: 80px; /* Adjust as needed */
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #292929;
+    color: #ffffff;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*  Four columns */
+    gap: 20px;
+    text-align: left;
+}
+
+footer .footer-logo img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/*  Responsive Design (Example - adjust breakpoints as needed) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    footer {
+        grid-template-columns: 1fr; /*  Stack on smaller screens */
+        text-align: center;
+    }
+}
+
+/* Add more styles for other sections and elements */

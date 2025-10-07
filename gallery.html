@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Nirmal Sand and Infra</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
+          <span class="logo-text">Nirmal Sand and Infra</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Project Gallery</h1>
+      <p class="page-subtitle">Showcasing Our Construction Excellence</p>
+    </div>
+  </section>
+
+  <!-- Gallery Filter -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">All Images</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="residential">Residential</button>
+        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+        <button class="filter-btn" data-filter="industrial">Industrial</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="commercial">
+          <img src="assets/gallery-commercial-1.jpg" alt="Commercial Project 1">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Corporate Tower</h3>
+              <p>Mumbai, Maharashtra</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-commercial-1.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="residential">
+          <img src="assets/gallery-residential-1.jpg" alt="Residential Project 1">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Luxury Apartments</h3>
+              <p>Delhi, NCR</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-residential-1.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="infrastructure">
+          <img src="assets/gallery-infrastructure-1.jpg" alt="Infrastructure Project 1">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Highway Bridge</h3>
+              <p>Pune, Maharashtra</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-infrastructure-1.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="industrial">
+          <img src="assets/gallery-industrial-1.jpg" alt="Industrial Project 1">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Manufacturing Facility</h3>
+              <p>Chennai, Tamil Nadu</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-industrial-1.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="commercial">
+          <img src="assets/gallery-commercial-2.jpg" alt="Commercial Project 2">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Shopping Complex</h3>
+              <p>Bangalore, Karnataka</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-commercial-2.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="residential">
+          <img src="assets/gallery-residential-2.jpg" alt="Residential Project 2">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Villa Community</h3>
+              <p>Hyderabad, Telangana</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-residential-2.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="infrastructure">
+          <img src="assets/gallery-infrastructure-2.jpg" alt="Infrastructure Project 2">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Metro Station</h3>
+              <p>Kolkata, West Bengal</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-infrastructure-2.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="industrial">
+          <img src="assets/gallery-industrial-2.jpg" alt="Industrial Project 2">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Warehouse Complex</h3>
+              <p>Ahmedabad, Gujarat</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-industrial-2.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="commercial">
+          <img src="assets/gallery-commercial-3.jpg" alt="Commercial Project 3">
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h3>Office Complex</h3>
+              <p>Noida, Uttar Pradesh</p>
+              <button class="view-image-btn" onclick="openLightbox('assets/gallery-commercial-3.jpg')">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <img src="" alt="Gallery Image" id="lightboxImage">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
+            <span>Nirmal Sand and Infra</span>
+          </div>
+          <p class="footer-description">
+            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="clients.html">Our Clients</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Commercial Construction</a></li>
+            <li><a href="#">Residential Projects</a></li>
+            <li><a href="#">Infrastructure Development</a></li>
+            <li><a href="#">Industrial Construction</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Construction Street, Mumbai, Maharashtra</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@nirmalsandinfra.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
