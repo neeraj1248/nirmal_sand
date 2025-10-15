@@ -671,7 +671,13 @@
                         url('https://cdn.stocksnap.io/img-thumbs/960w/rural-road_DVPLJN9UMB.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
+        }
+        
+        @media (min-width: 768px) {
+            .banner-bg-1 {
+                background-attachment: fixed;
+            }
         }
 
         .banner-bg-2 {
@@ -679,7 +685,13 @@
                         url('https://cdn.stocksnap.io/img-thumbs/960w/rural-road_DXAOQ9N1XD.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
+        }
+        
+        @media (min-width: 768px) {
+            .banner-bg-2 {
+                background-attachment: fixed;
+            }
         }
 
         .banner-bg-3 {
@@ -687,7 +699,13 @@
                         url('https://cdn.stocksnap.io/img-thumbs/960w/highway-road_EQSPI2L6XU.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
+        }
+        
+        @media (min-width: 768px) {
+            .banner-bg-3 {
+                background-attachment: fixed;
+            }
         }
 
         .bg-logo {
@@ -1065,10 +1083,10 @@
     <!-- Main Content -->
     <main style="padding-top: 112px;">
         <!-- Hero Carousel Section -->
-        <section id="home" class="carousel-container h-[40rem] md:h-120 relative">
+        <section id="home" class="carousel-container h-[50vh] md:h-[40rem] lg:h-120 relative">
             <div class="carousel-track" id="carouselTrack">
                 <div class="carousel-item relative">
-                    <div class="w-full h-[40rem] md:h-120 banner-bg-1 flex items-center">
+                    <div class="w-full h-[50vh] md:h-[40rem] lg:h-120 banner-bg-1 flex items-center">
                         <div class="container mx-auto px-4">
                             <div class="text-white max-w-2xl">
                                 <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-slide-up">Building Dreams</h1>
@@ -1081,7 +1099,7 @@
                     </div>
                 </div>
                 <div class="carousel-item relative">
-                    <div class="w-full h-[40rem] md:h-120 banner-bg-2 flex items-center">
+                    <div class="w-full h-[50vh] md:h-[40rem] lg:h-120 banner-bg-2 flex items-center">
                         <div class="container mx-auto px-4">
                             <div class="text-white max-w-2xl">
                                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Excellence in Infrastructure</h1>
@@ -1094,7 +1112,7 @@
                     </div>
                 </div>
                 <div class="carousel-item relative">
-                    <div class="w-full h-120 md:h-screen banner-bg-3 flex items-center">
+                    <div class="w-full h-[50vh] md:h-[40rem] lg:h-screen banner-bg-3 flex items-center">
                         <div class="container mx-auto px-4">
                             <div class="text-white max-w-2xl">
                                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Innovation & Quality</h1>
