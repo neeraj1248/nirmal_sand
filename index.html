@@ -672,11 +672,14 @@
             background-size: cover;
             background-position: center;
             background-attachment: scroll;
+            touch-action: manipulation;
+            pointer-events: none;
         }
         
         @media (min-width: 768px) {
             .banner-bg-1 {
                 background-attachment: fixed;
+                pointer-events: auto;
             }
         }
 
@@ -686,11 +689,14 @@
             background-size: cover;
             background-position: center;
             background-attachment: scroll;
+            touch-action: manipulation;
+            pointer-events: none;
         }
         
         @media (min-width: 768px) {
             .banner-bg-2 {
                 background-attachment: fixed;
+                pointer-events: auto;
             }
         }
 
@@ -700,12 +706,22 @@
             background-size: cover;
             background-position: center;
             background-attachment: scroll;
+            touch-action: manipulation;
+            pointer-events: none;
         }
         
         @media (min-width: 768px) {
             .banner-bg-3 {
                 background-attachment: fixed;
+                pointer-events: auto;
             }
+        }
+
+        /* Ensure banner content is interactive on mobile */
+        .banner-bg-1 .container,
+        .banner-bg-2 .container,
+        .banner-bg-3 .container {
+            pointer-events: auto;
         }
 
         .bg-logo {
