@@ -1,367 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Careers - Nirmal Sand and Infra</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/animations.css">
-  <link rel="stylesheet" href="styles/responsive.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
-          <span class="logo-text">Nirmal Sand and Infra</span>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="team.html" class="nav-link">Team</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="careers.html" class="nav-link active">Careers</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1 class="page-title">Careers</h1>
-      <p class="page-subtitle">Join Our Team of Excellence</p>
-    </div>
-  </section>
-
-  <!-- Career Intro -->
-  <section class="career-intro">
-    <div class="container">
-      <div class="intro-content">
-        <h2>Build Your Career with Us</h2>
-        <p>At Nirmal Sand and Infra, we believe our people are our greatest asset. We offer exciting career opportunities for talented individuals who share our passion for excellence in construction and infrastructure development.</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Join Our Team | Nirmal Sand & Infra</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        <div class="career-benefits">
-          <div class="benefit-item">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Professional Growth</h3>
-            <p>Continuous learning and development opportunities</p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-users"></i>
-            <h3>Collaborative Environment</h3>
-            <p>Work with industry experts and innovative teams</p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-trophy"></i>
-            <h3>Recognition & Rewards</h3>
-            <p>Performance-based incentives and recognition programs</p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-balance-scale"></i>
-            <h3>Work-Life Balance</h3>
-            <p>Flexible working arrangements and employee wellness</p>
-          </div>
+        :root {
+            --primary-gold: #eba500;
+            --dark-gray: #292929;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Job Card Animations */
+        .job-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #f59e0b;
+        }
+
+        /* Filter buttons */
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Application Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.8) translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Benefits Icons */
+        .benefit-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 3px;
+        }
+
+        /* Form styling */
+        .form-input {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+
+        .form-input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+
+        /* Success animation */
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .success-animation {
+            animation: successPulse 0.6s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Contact Strip -->
+    <div class="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 py-1.5 px-4 text-xs fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Left Side - Contact Info -->
+            <div class="flex items-center space-x-4 text-gray-800">
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-envelope text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">info@nirmalsandinfra.com</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-phone-alt text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">+91 98765 43210</span>
+                </div>
+            </div>
+            
+            <!-- Right Side - Social Media Icons -->
+            <div class="flex items-center space-x-3">
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-facebook-f text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-twitter text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-pink-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-instagram text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-linkedin-in text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-red-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-youtube text-xs"></i>
+                </a>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-
-  <!-- Current Openings -->
-  <section class="job-openings">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Current Job Openings</h2>
-        <p class="section-subtitle">Explore Exciting Career Opportunities</p>
-      </div>
-      
-      <div class="jobs-grid">
-        <div class="job-card">
-          <div class="job-header">
-            <h3>Senior Civil Engineer</h3>
-            <span class="job-type">Full-time</span>
-          </div>
-          <div class="job-details">
-            <div class="job-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</span>
-              <span><i class="fas fa-briefcase"></i> 5-8 years experience</span>
-              <span><i class="fas fa-graduation-cap"></i> B.Tech/M.Tech Civil</span>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full z-40" style="top: 32px;">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg width="120" height="60" viewBox="0 0 120 60" class="hover:opacity-90 transition-opacity">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#eba500;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d4940a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Building Icon Outlines -->
+                        <rect x="20" y="15" width="8" height="30" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="30" y="20" width="8" height="25" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="40" y="12" width="8" height="33" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="50" y="18" width="8" height="27" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <!-- Company Initials -->
+                        <text x="70" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#logoGradient)">NS</text>
+                        <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="url(#logoGradient)" opacity="0.8">INFRA</text>
+                        <!-- Decorative elements -->
+                        <circle cx="105" cy="15" r="3" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                        <circle cx="105" cy="45" r="2" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">About</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Projects</a>
+                    <a href="team.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Team</a>
+                    <a href="careers.html" class="text-yellow-500 font-medium">Careers</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl" style="color: var(--dark-gray);"></i>
+                </button>
             </div>
-            <p class="job-description">
-              We are looking for an experienced Civil Engineer to join our project team. The candidate will be responsible for planning, designing, and overseeing construction projects.
-            </p>
-            <div class="job-skills">
-              <span class="skill-tag">AutoCAD</span>
-              <span class="skill-tag">Project Management</span>
-              <span class="skill-tag">Structural Design</span>
-            </div>
-          </div>
-          <div class="job-footer">
-            <button class="apply-btn" onclick="openJobModal('Senior Civil Engineer')">
-              <i class="fas fa-paper-plane"></i>
-              Apply Now
-            </button>
-          </div>
         </div>
-
-        <div class="job-card">
-          <div class="job-header">
-            <h3>Project Manager</h3>
-            <span class="job-type">Full-time</span>
-          </div>
-          <div class="job-details">
-            <div class="job-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Delhi, NCR</span>
-              <span><i class="fas fa-briefcase"></i> 8-12 years experience</span>
-              <span><i class="fas fa-graduation-cap"></i> Engineering/MBA</span>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-[60] md:hidden">
+            <div class="p-6" style="padding-top: 65px;">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold" style="color: var(--dark-gray);">Menu</h2>
+                    <button onclick="toggleMobileMenu()">
+                        <i class="fas fa-times text-2xl" style="color: var(--dark-gray);"></i>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="index.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Home</a>
+                    <a href="about.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">About</a>
+                    <a href="services.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Services</a>
+                    <a href="projects.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Projects</a>
+                    <a href="gallery.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Gallery</a>
+                    <a href="team.html" class="block text-lg text-yellow-500" onclick="toggleMobileMenu()">Team</a>
+                    <a href="contact.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+                </nav>
             </div>
-            <p class="job-description">
-              Seeking an experienced Project Manager to lead large-scale construction projects from inception to completion, ensuring quality, timeline, and budget adherence.
-            </p>
-            <div class="job-skills">
-              <span class="skill-tag">Leadership</span>
-              <span class="skill-tag">Budget Management</span>
-              <span class="skill-tag">Risk Assessment</span>
-            </div>
-          </div>
-          <div class="job-footer">
-            <button class="apply-btn" onclick="openJobModal('Project Manager')">
-              <i class="fas fa-paper-plane"></i>
-              Apply Now
-            </button>
-          </div>
         </div>
+    </header>
 
-        <div class="job-card">
-          <div class="job-header">
-            <h3>Architect</h3>
-            <span class="job-type">Full-time</span>
-          </div>
-          <div class="job-details">
-            <div class="job-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</span>
-              <span><i class="fas fa-briefcase"></i> 3-6 years experience</span>
-              <span class="fas fa-graduation-cap"></i> B.Arch/M.Arch</span>
+    <!-- Main Content -->
+    <main style="padding-top: 112px;">
+        
+        <!-- Hero Section -->
+        <section class="relative py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-blue-500/15 to-purple-600/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
             </div>
-            <p class="job-description">
-              Creative Architect needed to design innovative and sustainable building solutions for commercial and residential projects.
-            </p>
-            <div class="job-skills">
-              <span class="skill-tag">3D Modeling</span>
-              <span class="skill-tag">Sustainable Design</span>
-              <span class="skill-tag">Building Codes</span>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center text-white">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                        Build Your Career With <span class="text-gradient bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Excellence</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in max-w-3xl mx-auto">
+                        Join our dynamic team and be part of constructing the future. We offer challenging opportunities, 
+                        competitive benefits, and a culture of innovation.
+                    </p>
+                    <div class="animate-fade-in">
+                        <a href="#jobs" class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105 mr-4">
+                            View Open Positions
+                        </a>
+                        <a href="#benefits" class="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-500 hover:text-white transition-all duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="job-footer">
-            <button class="apply-btn" onclick="openJobModal('Architect')">
-              <i class="fas fa-paper-plane"></i>
-              Apply Now
-            </button>
-          </div>
-        </div>
+        </section>
 
-        <div class="job-card">
-          <div class="job-header">
-            <h3>Safety Officer</h3>
-            <span class="job-type">Full-time</span>
-          </div>
-          <div class="job-details">
-            <div class="job-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</span>
-              <span><i class="fas fa-briefcase"></i> 4-7 years experience</span>
-              <span><i class="fas fa-graduation-cap"></i> Safety Certification</span>
-            </div>
-            <p class="job-description">
-              Experienced Safety Officer required to implement and monitor safety protocols across construction sites, ensuring compliance with regulations.
-            </p>
-            <div class="job-skills">
-              <span class="skill-tag">Safety Audits</span>
-              <span class="skill-tag">Risk Management</span>
-              <span class="skill-tag">Compliance</span>
-            </div>
-          </div>
-          <div class="job-footer">
-            <button class="apply-btn" onclick="openJobModal('Safety Officer')">
-              <i class="fas fa-paper-plane"></i>
-              Apply Now
-            </button>
-          </div>
-        </div>
+        <!-- Why Join Us Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                        Why Choose <span class="text-gradient">Nirmal Sand & Infra</span>?
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We believe in nurturing talent, fostering innovation, and creating an environment where you can thrive professionally and personally.
+                    </p>
+                </div>
 
-        <div class="job-card">
-          <div class="job-header">
-            <h3>Quantity Surveyor</h3>
-            <span class="job-type">Full-time</span>
-          </div>
-          <div class="job-details">
-            <div class="job-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</span>
-              <span><i class="fas fa-briefcase"></i> 3-5 years experience</span>
-              <span><i class="fas fa-graduation-cap"></i> Civil Engineering</span>
-            </div>
-            <p class="job-description">
-              Detail-oriented Quantity Surveyor needed for cost estimation, material planning, and project financial management.
-            </p>
-            <div class="job-skills">
-              <span class="skill-tag">Cost Estimation</span>
-              <span class="skill-tag">Material Planning</span>
-              <span class="skill-tag">Contract Management</span>
-            </div>
-          </div>
-          <div class="job-footer">
-            <button class="apply-btn" onclick="openJobModal('Quantity Surveyor')">
-              <i class="fas fa-paper-plane"></i>
-              Apply Now
-            </button>
-          </div>
-        </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl hover-lift scroll-reveal">
+                        <div class="benefit-icon mx-auto">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Career Growth</h3>
+                        <p class="text-gray-600">Clear advancement paths, mentorship programs, and opportunities to lead major projects.</p>
+                    </div>
 
-        <div class="job-card">
-          <div class="job-header">
-            <h3>Site Supervisor</h3>
-            <span class="job-type">Full-time</span>
-          </div>
-          <div class="job-details">
-            <div class="job-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
-              <span><i class="fas fa-briefcase"></i> 2-4 years experience</span>
-              <span><i class="fas fa-graduation-cap"></i> Diploma/Engineering</span>
+                    <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl hover-lift scroll-reveal">
+                        <div class="benefit-icon mx-auto">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Work-Life Balance</h3>
+                        <p class="text-gray-600">Flexible schedules, remote work options, and comprehensive wellness programs.</p>
+                    </div>
+
+                    <div class="text-center p-8 bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl hover-lift scroll-reveal">
+                        <div class="benefit-icon mx-auto">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Learning & Development</h3>
+                        <p class="text-gray-600">Continuous training, certifications, and access to cutting-edge technologies.</p>
+                    </div>
+
+                    <div class="text-center p-8 bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl hover-lift scroll-reveal">
+                        <div class="benefit-icon mx-auto">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Collaborative Culture</h3>
+                        <p class="text-gray-600">Work with talented professionals in a supportive, inclusive environment.</p>
+                    </div>
+
+                    <div class="text-center p-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl hover-lift scroll-reveal">
+                        <div class="benefit-icon mx-auto">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Recognition & Rewards</h3>
+                        <p class="text-gray-600">Performance-based bonuses, achievement awards, and comprehensive benefits package.</p>
+                    </div>
+
+                    <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl hover-lift scroll-reveal">
+                        <div class="benefit-icon mx-auto">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Global Impact</h3>
+                        <p class="text-gray-600">Contribute to infrastructure projects that shape communities and improve lives.</p>
+                    </div>
+                </div>
             </div>
-            <p class="job-description">
-              Hands-on Site Supervisor required to oversee daily construction activities, coordinate with teams, and ensure quality standards.
-            </p>
-            <div class="job-skills">
-              <span class="skill-tag">Team Management</span>
-              <span class="skill-tag">Quality Control</span>
-              <span class="skill-tag">Site Coordination</span>
+        </section>
+
+        <!-- Job Openings Section -->
+        <section id="jobs" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                        Open <span class="text-gradient">Positions</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                        Discover exciting career opportunities across various departments and experience levels.
+                    </p>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-12">
+                        <button class="filter-btn active px-6 py-3 rounded-full border border-gray-300 font-medium" onclick="filterJobs('all')">
+                            All Positions
+                        </button>
+                        <button class="filter-btn px-6 py-3 rounded-full border border-gray-300 font-medium" onclick="filterJobs('engineering')">
+                            Engineering
+                        </button>
+                        <button class="filter-btn px-6 py-3 rounded-full border border-gray-300 font-medium" onclick="filterJobs('management')">
+                            Management
+                        </button>
+                        <button class="filter-btn px-6 py-3 rounded-full border border-gray-300 font-medium" onclick="filterJobs('finance')">
+                            Finance
+                        </button>
+                        <button class="filter-btn px-6 py-3 rounded-full border border-gray-300 font-medium" onclick="filterJobs('operations')">
+                            Operations
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Listings -->
+                <div id="jobContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Senior Civil Engineer -->
+                    <div class="job-card bg-white rounded-2xl p-8 shadow-lg" data-category="engineering">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-hard-hat text-white text-2xl"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Senior Civil Engineer</h3>
+                        <p class="text-gray-600 mb-4">Lead complex infrastructure projects and mentor junior engineers in our growing team.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Mumbai, India</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-6">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>5+ years experience</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300" onclick="openApplicationModal('Senior Civil Engineer', 'engineering')">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- Project Manager -->
+                    <div class="job-card bg-white rounded-2xl p-8 shadow-lg" data-category="management">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-project-diagram text-white text-2xl"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Project Manager</h3>
+                        <p class="text-gray-600 mb-4">Oversee project delivery, manage teams, and ensure quality standards across multiple sites.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Delhi, India</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-6">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>7+ years experience</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-green-500 to-teal-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300" onclick="openApplicationModal('Project Manager', 'management')">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- Financial Analyst -->
+                    <div class="job-card bg-white rounded-2xl p-8 shadow-lg" data-category="finance">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-chart-bar text-white text-2xl"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Financial Analyst</h3>
+                        <p class="text-gray-600 mb-4">Analysis project costs, prepare budgets, and provide financial insights for strategic decisions.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Bangalore, India</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-6">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>3+ years experience</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-yellow-500 to-orange-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300" onclick="openApplicationModal('Financial Analyst', 'finance')">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- Site Supervisor -->
+                    <div class="job-card bg-white rounded-2xl p-8 shadow-lg" data-category="operations">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-helmet-safety text-white text-2xl"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Site Supervisor</h3>
+                        <p class="text-gray-600 mb-4">Ensure safety protocols, quality standards, and efficient operations at construction sites.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Pune, India</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-6">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>4+ years experience</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-red-500 to-pink-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300" onclick="openApplicationModal('Site Supervisor', 'operations')">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- Structural Engineer -->
+                    <div class="job-card bg-white rounded-2xl p-8 shadow-lg" data-category="engineering">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-drafting-compass text-white text-2xl"></i>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Contract</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Structural Engineer</h3>
+                        <p class="text-gray-600 mb-4">Design and analyze structural systems for commercial and residential projects.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Chennai, India</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-6">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>3+ years experience</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300" onclick="openApplicationModal('Structural Engineer', 'engineering')">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- HR Manager -->
+                    <div class="job-card bg-white rounded-2xl p-8 shadow-lg" data-category="management">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-users-cog text-white text-2xl"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">HR Manager</h3>
+                        <p class="text-gray-600 mb-4">Lead talent acquisition, employee development, and organizational culture initiatives.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Hyderabad, India</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-6">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>6+ years experience</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300" onclick="openApplicationModal('HR Manager', 'management')">
+                            Apply Now
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- No Jobs Message -->
+                <div id="noJobsMessage" class="text-center py-16 hidden">
+                    <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-search text-gray-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-600 mb-4">No positions found</h3>
+                    <p class="text-gray-500">Try adjusting your filter or check back later for new opportunities.</p>
+                </div>
             </div>
-          </div>
-          <div class="job-footer">
-            <button class="apply-btn" onclick="openJobModal('Site Supervisor')">
-              <i class="fas fa-paper-plane"></i>
-              Apply Now
-            </button>
-          </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Comprehensive <span class="text-gradient bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Benefits Package</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        We invest in our employees' well-being and success with a comprehensive benefits package designed to support you and your family.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-medkit text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Health Insurance</h3>
+                        <p class="text-gray-300 text-sm">Comprehensive medical, dental, and vision coverage for you and your family.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-piggy-bank text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Retirement Plans</h3>
+                        <p class="text-gray-300 text-sm">401(k) with company matching and investment advisory services.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-umbrella-beach text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Paid Time Off</h3>
+                        <p class="text-gray-300 text-sm">Generous vacation, sick leave, and personal days to maintain work-life balance.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Education Support</h3>
+                        <p class="text-gray-300 text-sm">Tuition reimbursement and professional development opportunities.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-home text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Flexible Work</h3>
+                        <p class="text-gray-300 text-sm">Remote work options and flexible scheduling when possible.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-car text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Transportation</h3>
+                        <p class="text-gray-300 text-sm">Company vehicle or transportation allowance for field positions.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gift text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Performance Bonus</h3>
+                        <p class="text-gray-300 text-sm">Annual performance bonuses and project completion incentives.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover-lift scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dumbbell text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Wellness Programs</h3>
+                        <p class="text-gray-300 text-sm">Gym memberships, wellness checks, and mental health support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-yellow-500 to-orange-600">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Ready to Join Our Team?
+                    </h2>
+                    <p class="text-xl text-white/90 mb-8">
+                        Don't see the perfect position? Send us your resume anyway! We're always looking for talented individuals to join our growing team.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-white text-yellow-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105" onclick="openGeneralApplicationModal()">
+                            Submit General Application
+                        </button>
+                        <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-yellow-600 transition-all duration-300">
+                            Contact HR Department
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content custom-scrollbar">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800" id="modalTitle">Apply for Position</h2>
+                    <button onclick="closeApplicationModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <form id="applicationForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                            <input type="text" name="firstName" required class="form-input w-full px-4 py-3 rounded-xl outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                            <input type="text" name="lastName" required class="form-input w-full px-4 py-3 rounded-xl outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" name="email" required class="form-input w-full px-4 py-3 rounded-xl outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" name="phone" required class="form-input w-full px-4 py-3 rounded-xl outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Years of Experience *</label>
+                        <select name="experience" required class="form-input w-full px-4 py-3 rounded-xl outline-none">
+                            <option value="">Select experience level</option>
+                            <option value="0-1">0-1 years</option>
+                            <option value="2-3">2-3 years</option>
+                            <option value="4-5">4-5 years</option>
+                            <option value="6-10">6-10 years</option>
+                            <option value="10+">10+ years</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Resume/CV *</label>
+                        <div class="form-input w-full px-4 py-3 rounded-xl border-dashed border-2 text-center cursor-pointer hover:bg-gray-50 transition-colors" onclick="document.getElementById('resume').click()">
+                            <i class="fas fa-cloud-upload-alt text-2xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-600">Click to upload your resume</p>
+                            <p class="text-sm text-gray-400">PDF, DOC, DOCX (Max 5MB)</p>
+                        </div>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" class="hidden" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Cover Letter</label>
+                        <textarea name="coverLetter" rows="4" class="form-input w-full px-4 py-3 rounded-xl outline-none resize-none" placeholder="Tell us why you're interested in this position..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile (Optional)</label>
+                        <input type="url" name="linkedin" class="form-input w-full px-4 py-3 rounded-xl outline-none" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" id="terms" name="terms" required class="mt-1 w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500">
+                        <label for="terms" class="text-sm text-gray-700">
+                            I agree to the <a href="#" class="text-yellow-600 hover:underline">Terms and Conditions</a> and <a href="#" class="text-yellow-600 hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button type="submit" class="flex-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Submit Application
+                        </button>
+                        <button type="button" onclick="closeApplicationModal()" class="flex-1 border border-gray-300 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Job Application Modal -->
-  <div class="job-modal" id="jobModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 id="modalJobTitle">Apply for Position</h2>
-        <span class="modal-close" onclick="closeJobModal()">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p>Please send your CV and cover letter to our HR team:</p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>careers@nirmalsandinfra.com</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>+91 98765 43210</span>
-          </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Nirmal Sand & Infra</h3>
+                            <p class="text-yellow-500">Premium Construction</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Leading construction and infrastructure company committed to delivering excellence 
+                        through innovative solutions, quality materials, and sustainable practices. 
+                        Building the future, one project at a time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-500 transition-colors">About Us</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Projects</a></li>
+                        <li><a href="team.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Team</a></li>
+                        <li><a href="careers.html" class="text-yellow-500">Careers</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">123 Construction Avenue</p>
+                                <p class="text-gray-300">Business District, City 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-yellow-500"></i>
+                            <p class="text-gray-300">+91 98765 43210</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-yellow-500"></i>
+                            <p class="text-gray-300">info@nirmalsandinfra.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2024 Nirmal Sand & Infra. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="modal-note">
-          <strong>Note:</strong> Please mention the position title in the subject line of your email. 
-          We will review your application and contact you if your profile matches our requirements.
-        </p>
-        <div class="modal-actions">
-          <a href="mailto:careers@nirmalsandinfra.com" class="email-btn">
-            <i class="fas fa-envelope"></i>
-            Send Email
-          </a>
-          <button class="close-btn" onclick="closeJobModal()">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo">
-            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
-            <span>Nirmal Sand and Infra</span>
-          </div>
-          <p class="footer-description">
-            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="clients.html">Our Clients</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Services</h3>
-          <ul class="footer-links">
-            <li><a href="#">Commercial Construction</a></li>
-            <li><a href="#">Residential Projects</a></li>
-            <li><a href="#">Infrastructure Development</a></li>
-            <li><a href="#">Industrial Construction</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>123 Construction Street, Mumbai, Maharashtra</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+91 98765 43210</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>info@nirmalsandinfra.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
 
-  <script src="js/main.js"></script>
-  <script src="js/careers.js"></script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('revealed');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Check on page load
+
+        // Job filtering
+        function filterJobs(category) {
+            const jobCards = document.querySelectorAll('.job-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const noJobsMessage = document.getElementById('noJobsMessage');
+            let visibleJobs = 0;
+
+            // Update active filter button
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter job cards
+            jobCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    visibleJobs++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no jobs message
+            if (visibleJobs === 0) {
+                noJobsMessage.classList.remove('hidden');
+            } else {
+                noJobsMessage.classList.add('hidden');
+            }
+        }
+
+        // Application modal functions
+        let currentPosition = '';
+        let currentCategory = '';
+
+        function openApplicationModal(position, category) {
+            currentPosition = position;
+            currentCategory = category;
+            document.getElementById('modalTitle').textContent = `Apply for ${position}`;
+            document.getElementById('applicationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openGeneralApplicationModal() {
+            currentPosition = 'General Application';
+            currentCategory = 'general';
+            document.getElementById('modalTitle').textContent = 'Submit General Application';
+            document.getElementById('applicationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeApplicationModal() {
+            document.getElementById('applicationModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('applicationForm').reset();
+        }
+
+        // File upload handling
+        document.getElementById('resume').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const uploadArea = e.target.previousElementSibling;
+            
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                    alert('File size must be less than 5MB');
+                    e.target.value = '';
+                    return;
+                }
+                
+                uploadArea.innerHTML = `
+                    <i class="fas fa-file-check text-2xl text-green-500 mb-2"></i>
+                    <p class="text-green-600 font-medium">${file.name}</p>
+                    <p class="text-sm text-gray-400">Click to change file</p>
+                `;
+                uploadArea.classList.add('border-green-300', 'bg-green-50');
+            }
+        });
+
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                const modalContent = document.querySelector('.modal-content');
+                modalContent.innerHTML = `
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 success-animation">
+                            <i class="fas fa-check text-green-500 text-3xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Application Submitted!</h2>
+                        <p class="text-gray-600 mb-6">
+                            Thank you for your interest in the ${currentPosition} position. 
+                            We'll review your application and get back to you within 5-7 business days.
+                        </p>
+                        <button onclick="closeApplicationModal()" class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white py-3 px-8 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                            Close
+                        </button>
+                    </div>
+                `;
+            }, 2000);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('applicationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeApplicationModal();
+            }
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation delays to job cards
+            const jobCards = document.querySelectorAll('.job-card');
+            jobCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>

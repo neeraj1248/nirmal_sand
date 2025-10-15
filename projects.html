@@ -1,213 +1,1133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects - Nirmal Sand and Infra</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/animations.css">
-  <link rel="stylesheet" href="styles/responsive.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Nirmal Sand & Infra</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> -->
+    
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css"> -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gold: #eba500;
+            --dark-gray: #292929;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float-delayed {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        .animate-float-delayed {
+            animation: float-delayed 4s ease-in-out infinite 1s;
+        }
+        
+        .opacity-5 {
+            opacity: 0.28!important;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Premium 3D Project Card Design */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 1rem;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(217, 119, 6, 0.01));
+            border-radius: 1rem;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(3deg) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(245, 158, 11, 0.2),
+                0 15px 30px rgba(0, 0, 0, 0.15),
+                0 8px 20px rgba(217, 119, 6, 0.1),
+                inset 0 2px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem 1rem 0 0;
+            height: 200px;
+            z-index: 2;
+        }
+        
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.05) 100%);
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        
+        .project-card:hover .project-image::after {
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 100%);
+        }
+        
+        .project-image img {
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(1);
+            filter: brightness(1) contrast(1.05);
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1) rotate(1deg);
+            filter: brightness(1.1) contrast(1.1) saturate(1.1);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(245, 158, 11, 0.85) 0%, 
+                rgba(217, 119, 6, 0.7) 50%, 
+                rgba(146, 64, 14, 0.6) 100%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+        }
+        
+        .project-overlay::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-card:hover .project-overlay::before {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .project-overlay-icon {
+            color: white;
+            font-size: 2rem;
+            transition: all 0.5s ease;
+            z-index: 3;
+            opacity: 0;
+            transform: scale(0.5) rotate(-180deg);
+        }
+        
+        .project-card:hover .project-overlay-icon {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 1.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            box-shadow: 
+                0 5px 15px rgba(245, 158, 11, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-60px) rotate(-5deg);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .project-card:hover .project-badge {
+            transform: translateY(0) rotate(0deg);
+            box-shadow: 
+                0 8px 20px rgba(245, 158, 11, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+        }
+        
+        .view-details-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 6px 18px rgba(245, 158, 11, 0.4),
+                0 3px 8px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .view-details-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #d97706, #92400e, #451a03);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        
+        .view-details-btn:hover::before {
+            left: 0;
+        }
+        
+        .view-details-btn span,
+        .view-details-btn i {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .view-details-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 10px 25px rgba(245, 158, 11, 0.6),
+                0 5px 15px rgba(0, 0, 0, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+        }
+        
+        .view-details-btn:hover i {
+            transform: translateX(3px) rotate(5deg);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(248,250,252,0.9));
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 1rem 1rem;
+        }
+        
+        .project-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #d97706, #f59e0b, transparent);
+            transition: width 0.5s ease 0.2s;
+            border-radius: 1px;
+        }
+        
+        .project-card:hover .project-content::before {
+            width: 60px;
+        }
+        
+        .project-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1.4;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-card:hover .project-title {
+            color: #d97706;
+            transform: translateX(5px);
+        }
+        
+        .project-description {
+            margin-bottom: 1rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-card:hover .project-description {
+            color: #374151;
+            transform: translateX(5px);
+        }
+        
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+        
+        .project-card:hover .project-footer {
+            transform: translateX(5px);
+        }
+        
+        .project-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-location {
+            color: #6b7280;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            color: #6b7280;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: #f59e0b;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .stats-counter {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 1.5rem 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.06),
+                0 3px 10px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .stats-counter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.02));
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 1.5rem;
+        }
+        
+        .stats-counter:hover::before {
+            opacity: 1;
+        }
+        
+        .stats-counter:hover {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 0.95));
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 12px 25px rgba(245, 158, 11, 0.15),
+                0 6px 15px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+        
+        .stats-number {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-counter:hover .stats-number {
+            transform: scale(1.1);
+        }
+        
+        .stats-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-counter:hover .stats-label {
+            color: #374151;
+        }
+        
+        .stats-icon {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            transition: all 0.4s ease;
+        }
+        
+        .stats-counter:hover .stats-icon {
+            opacity: 1;
+            transform: rotate(360deg) scale(1.1);
+        }
+    </style>
 </head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
-          <span class="logo-text">Nirmal Sand and Infra</span>
+<body class="bg-white">
+    <!-- Top Contact Strip -->
+    <div class="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 py-1.5 px-4 text-xs fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Left Side - Contact Info -->
+            <div class="flex items-center space-x-4 text-gray-800">
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-envelope text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">info@nirmalsandinfra.com</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-phone-alt text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">+91 98765 43210</span>
+                </div>
+            </div>
+            
+            <!-- Right Side - Social Media Icons -->
+            <div class="flex items-center space-x-3">
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-facebook-f text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-twitter text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-pink-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-instagram text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-linkedin-in text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-red-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-youtube text-xs"></i>
+                </a>
+            </div>
         </div>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="projects.html" class="nav-link active">Projects</a></li>
-          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="team.html" class="nav-link">Team</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="careers.html" class="nav-link">Careers</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1 class="page-title">Our Projects</h1>
-      <p class="page-subtitle">Showcasing Excellence in Construction</p>
     </div>
-  </section>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full z-40" style="top: 32px;">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg width="120" height="60" viewBox="0 0 120 60" class="hover:opacity-90 transition-opacity">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#eba500;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d4940a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Building Icon Outlines -->
+                        <rect x="20" y="15" width="8" height="30" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="30" y="20" width="8" height="25" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="40" y="12" width="8" height="33" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="50" y="18" width="8" height="27" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <!-- Company Initials -->
+                        <text x="70" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#logoGradient)">NS</text>
+                        <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="url(#logoGradient)" opacity="0.8">INFRA</text>
+                        <!-- Decorative elements -->
+                        <circle cx="105" cy="15" r="3" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                        <circle cx="105" cy="45" r="2" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">About</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Projects</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Gallery</a>
+                    <a href="team.html" class="text-yellow-500 font-medium">Team</a>
+                    <a href="careers.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Careers</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl" style="color: var(--dark-gray);"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-[60] md:hidden">
+            <div class="p-6" style="padding-top: 65px;">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold" style="color: var(--dark-gray);">Menu</h2>
+                    <button onclick="toggleMobileMenu()">
+                        <i class="fas fa-times text-2xl" style="color: var(--dark-gray);"></i>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="index.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Home</a>
+                    <a href="about.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">About</a>
+                    <a href="services.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Services</a>
+                    <a href="projects.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Projects</a>
+                    <a href="gallery.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Gallery</a>
+                    <a href="team.html" class="block text-lg text-yellow-500" onclick="toggleMobileMenu()">Team</a>
+                    <a href="contact.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <!-- Projects Grid -->
-  <section class="projects-section">
-    <div class="container">
-      <div class="projects-filter">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="commercial">Commercial</button>
-        <button class="filter-btn" data-filter="residential">Residential</button>
-        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-        <button class="filter-btn" data-filter="industrial">Industrial</button>
-      </div>
-      
-      <div class="projects-grid">
-        <div class="project-card" data-category="commercial">
-          <div class="project-image">
-            <img src="assets/project-commercial-1.jpg" alt="Commercial Project 1">
-            <div class="project-overlay">
-              <div class="project-info">
-                <h3>Corporate Tower Complex</h3>
-                <p>Mumbai, Maharashtra</p>
-                <a href="project-details.html?id=1" class="view-details-btn">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Main Content -->
+    <main style="padding-top: 112px;">
         
-        <div class="project-card" data-category="residential">
-          <div class="project-image">
-            <img src="assets/project-residential-1.jpg" alt="Residential Project 1">
-            <div class="project-overlay">
-              <div class="project-info">
-                <h3>Luxury Apartments</h3>
-                <p>Delhi, NCR</p>
-                <a href="project-details.html?id=2" class="view-details-btn">View Details</a>
-              </div>
+        <!-- Hero Section -->
+        <section class="relative py-24 bg-gradient-to-br from-gray-50 via-white to-yellow-50 overflow-hidden">
+            <!-- Background Image with Low Opacity -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5" style="background-image: url('https://blog.novatr.com/hs-fs/hubfs/road-construction-projects.webp?width=1920&height=1080&name=road-construction-projects.webp');"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-fade-in">
+                        Our Projects
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 animate-fade-in max-w-3xl mx-auto">
+                        Discover our portfolio of exceptional construction and infrastructure projects that showcase our expertise and commitment to excellence.
+                    </p>
+                    <div class="animate-fade-in">
+                        <a href="#projects" class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-category="infrastructure">
-          <div class="project-image">
-            <img src="assets/project-infrastructure-1.jpg" alt="Infrastructure Project 1">
-            <div class="project-overlay">
-              <div class="project-info">
-                <h3>Highway Bridge Construction</h3>
-                <p>Pune, Maharashtra</p>
-                <a href="project-details.html?id=3" class="view-details-btn">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-category="industrial">
-          <div class="project-image">
-            <img src="assets/project-industrial-1.jpg" alt="Industrial Project 1">
-            <div class="project-overlay">
-              <div class="project-info">
-                <h3>Manufacturing Facility</h3>
-                <p>Chennai, Tamil Nadu</p>
-                <a href="project-details.html?id=4" class="view-details-btn">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-category="commercial">
-          <div class="project-image">
-            <img src="assets/project-commercial-2.jpg" alt="Commercial Project 2">
-            <div class="project-overlay">
-              <div class="project-info">
-                <h3>Shopping Mall Complex</h3>
-                <p>Bangalore, Karnataka</p>
-                <a href="project-details.html?id=5" class="view-details-btn">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-category="residential">
-          <div class="project-image">
-            <img src="assets/project-residential-2.jpg" alt="Residential Project 2">
-            <div class="project-overlay">
-              <div class="project-info">
-                <h3>Villa Community</h3>
-                <p>Hyderabad, Telangana</p>
-                <a href="project-details.html?id=6" class="view-details-btn">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo">
-            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
-            <span>Nirmal Sand and Infra</span>
-          </div>
-          <p class="footer-description">
-            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="clients.html">Our Clients</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Services</h3>
-          <ul class="footer-links">
-            <li><a href="#">Commercial Construction</a></li>
-            <li><a href="#">Residential Projects</a></li>
-            <li><a href="#">Infrastructure Development</a></li>
-            <li><a href="#">Industrial Construction</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>123 Construction Street, Mumbai, Maharashtra</span>
+        <!-- Enhanced Project Stats Section -->
+        <section class="py-12 bg-gradient-to-br from-gray-50 via-white to-yellow-50" id="stats-section">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-3 text-gradient">Our Achievements</h2>
+                    <p class="text-gray-600 text-base max-w-xl mx-auto">
+                        Delivering excellence through numbers that speak for our commitment and expertise in construction industry.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="stats-counter">
+                        <div class="stats-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stats-number">
+                            <span id="projects-counter" data-target="500">0</span>+
+                        </div>
+                        <div class="stats-label">Projects Completed</div>
+                    </div>
+                    <div class="stats-counter">
+                        <div class="stats-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <div class="stats-number">
+                            <span id="ongoing-counter" data-target="50">0</span>+
+                        </div>
+                        <div class="stats-label">Ongoing Projects</div>
+                    </div>
+                    <div class="stats-counter">
+                        <div class="stats-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats-number">
+                            <span id="clients-counter" data-target="1000">0</span>+
+                        </div>
+                        <div class="stats-label">Happy Clients</div>
+                    </div>
+                    <div class="stats-counter">
+                        <div class="stats-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="stats-number">
+                            <span id="experience-counter" data-target="20">0</span>+
+                        </div>
+                        <div class="stats-label">Years Experience</div>
+                    </div>
+                </div>
             </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+91 98765 43210</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>info@nirmalsandinfra.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+        </section>
 
-  <script src="js/main.js"></script>
-  <script src="js/projects.js"></script>
+        <!-- Project Filter Section -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">Filter Projects</h2>
+                    <p class="text-gray-600 mb-8">Browse our projects by category</p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+                        <button class="filter-btn" onclick="filterProjects('residential')">Residential</button>
+                        <button class="filter-btn" onclick="filterProjects('commercial')">Commercial</button>
+                        <button class="filter-btn" onclick="filterProjects('infrastructure')">Infrastructure</button>
+                        <button class="filter-btn" onclick="filterProjects('industrial')">Industrial</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Listing Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card" data-category="residential">
+                        <div class="project-image">
+                            <img src="https://images.assettype.com/fortuneindia/2022-01/486c4371-fbab-417f-bf86-347e454f6d57/Highway_construction_020A5889_copy.jpg?w=1250&q=60" 
+                                 alt="Modern Residential Complex" 
+                                 class="w-full h-full object-cover">
+                            <div class="project-overlay">
+                                <i class="fas fa-eye project-overlay-icon"></i>
+                            </div>
+                            <div class="project-badge">Residential</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title text-2xl font-bold mb-3 text-gray-800">Modern Residential Complex</h3>
+                            <p class="project-description text-gray-600 mb-6 leading-relaxed">
+                                A luxurious 200-unit residential complex featuring modern amenities, green spaces, and sustainable construction practices.
+                            </p>
+                            <div class="project-footer flex justify-between items-center">
+                                <span class="project-location">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                    Gurugram, Haryana
+                                </span>
+                                <a href="project-details.html" class="view-details-btn">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card" data-category="commercial">
+                        <div class="project-image">
+                            <img src="https://images.assettype.com/fortuneindia/2022-01/486c4371-fbab-417f-bf86-347e454f6d57/Highway_construction_020A5889_copy.jpg?w=1250&q=60" 
+                                 alt="Corporate Office Tower" 
+                                 class="w-full h-full object-cover">
+                            <div class="project-overlay">
+                                <i class="fas fa-eye project-overlay-icon"></i>
+                            </div>
+                            <div class="project-badge">Commercial</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title text-2xl font-bold mb-3 text-gray-800">Corporate Office Tower</h3>
+                            <p class="project-description text-gray-600 mb-6 leading-relaxed">
+                                A 25-story state-of-the-art office building with smart building technology and energy-efficient design solutions.
+                            </p>
+                            <div class="project-footer flex justify-between items-center">
+                                <span class="project-location">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                    New Delhi
+                                </span>
+                                <a href="project-details.html" class="view-details-btn">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card" data-category="infrastructure">
+                        <div class="project-image">
+                            <img src="https://images.assettype.com/fortuneindia/2022-01/486c4371-fbab-417f-bf86-347e454f6d57/Highway_construction_020A5889_copy.jpg?w=1250&q=60" 
+                                 alt="Highway Bridge Construction" 
+                                 class="w-full h-full object-cover">
+                            <div class="project-overlay">
+                                <i class="fas fa-eye project-overlay-icon"></i>
+                            </div>
+                            <div class="project-badge">Infrastructure</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title text-2xl font-bold mb-3 text-gray-800">Highway Bridge Construction</h3>
+                            <p class="project-description text-gray-600 mb-6 leading-relaxed">
+                                A critical 2.5km bridge connecting major highways, engineered for heavy traffic and extreme weather conditions.
+                            </p>
+                            <div class="project-footer flex justify-between items-center">
+                                <span class="project-location">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                    Mumbai-Pune Highway
+                                </span>
+                                <a href="project-details.html" class="view-details-btn">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card" data-category="residential">
+                        <div class="project-image">
+                            <img src="https://images.assettype.com/fortuneindia/2022-01/486c4371-fbab-417f-bf86-347e454f6d57/Highway_construction_020A5889_copy.jpg?w=1250&q=60" 
+                                 alt="Luxury Villa Project" 
+                                 class="w-full h-full object-cover">
+                            <div class="project-overlay">
+                                <i class="fas fa-eye project-overlay-icon"></i>
+                            </div>
+                            <div class="project-badge">Residential</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title text-2xl font-bold mb-3 text-gray-800">Luxury Villa Project</h3>
+                            <p class="project-description text-gray-600 mb-6 leading-relaxed">
+                                Premium gated community of 50 luxury villas with private gardens, clubhouse, and world-class amenities.
+                            </p>
+                            <div class="project-footer flex justify-between items-center">
+                                <span class="project-location">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                    Noida, UP
+                                </span>
+                                <a href="project-details.html" class="view-details-btn">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card" data-category="industrial">
+                        <div class="project-image">
+                            <img src="https://images.assettype.com/fortuneindia/2022-01/486c4371-fbab-417f-bf86-347e454f6d57/Highway_construction_020A5889_copy.jpg?w=1250&q=60" 
+                                 alt="Manufacturing Facility" 
+                                 class="w-full h-full object-cover">
+                            <div class="project-overlay">
+                                <i class="fas fa-eye project-overlay-icon"></i>
+                            </div>
+                            <div class="project-badge">Industrial</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title text-2xl font-bold mb-3 text-gray-800">Manufacturing Facility</h3>
+                            <p class="project-description text-gray-600 mb-6 leading-relaxed">
+                                Large-scale industrial complex with automated systems, quality control labs, and eco-friendly waste management.
+                            </p>
+                            <div class="project-footer flex justify-between items-center">
+                                <span class="project-location">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                    Chennai, Tamil Nadu
+                                </span>
+                                <a href="project-details.html" class="view-details-btn">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card" data-category="commercial">
+                        <div class="project-image">
+                            <img src="https://images.assettype.com/fortuneindia/2022-01/486c4371-fbab-417f-bf86-347e454f6d57/Highway_construction_020A5889_copy.jpg?w=1250&q=60" 
+                                 alt="Shopping Mall Complex" 
+                                 class="w-full h-full object-cover">
+                            <div class="project-overlay">
+                                <i class="fas fa-eye project-overlay-icon"></i>
+                            </div>
+                            <div class="project-badge">Commercial</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title text-2xl font-bold mb-3 text-gray-800">Shopping Mall Complex</h3>
+                            <p class="project-description text-gray-600 mb-6 leading-relaxed">
+                                Multi-level retail destination with entertainment zones, food courts, and integrated parking solutions.
+                            </p>
+                            <div class="project-footer flex justify-between items-center">
+                                <span class="project-location">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                    Bangalore, Karnataka
+                                </span>
+                                <a href="project-details.html" class="view-details-btn">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Nirmal Sand & Infra</h3>
+                            <p class="text-yellow-500">Premium Construction</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Leading construction and infrastructure company committed to delivering excellence 
+                        through innovative solutions, quality materials, and sustainable practices. 
+                        Building the future, one project at a time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">123 Construction Avenue</p>
+                                <p class="text-gray-300">Business District, City 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-yellow-500"></i>
+                            <p class="text-gray-300">+91 98765 43210</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-yellow-500"></i>
+                            <p class="text-gray-300">info@nirmalsandinfra.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2023 Nirmal Sand & Infra. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Project Filter Functionality
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project-card');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter projects with animation
+            projects.forEach((project, index) => {
+                const projectCategory = project.getAttribute('data-category');
+                
+                if (category === 'all' || projectCategory === category) {
+                    setTimeout(() => {
+                        project.style.display = 'block';
+                        project.style.opacity = '0';
+                        project.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            project.style.transition = 'all 0.5s ease';
+                            project.style.opacity = '1';
+                            project.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 100);
+                } else {
+                    project.style.transition = 'all 0.3s ease';
+                    project.style.opacity = '0';
+                    project.style.transform = 'translateY(-20px)';
+                    
+                    setTimeout(() => {
+                        project.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Counter Animation Function
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Stats Counter Animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('stats-animated')) {
+                    entry.target.classList.add('stats-animated');
+                    
+                    // Animate all counters with different speeds
+                    const counters = [
+                        { id: 'projects-counter', target: 500, duration: 2500 },
+                        { id: 'ongoing-counter', target: 50, duration: 1500 },
+                        { id: 'clients-counter', target: 1000, duration: 3000 },
+                        { id: 'experience-counter', target: 20, duration: 1800 }
+                    ];
+
+                    counters.forEach((counter, index) => {
+                        setTimeout(() => {
+                            const element = document.getElementById(counter.id);
+                            if (element) {
+                                animateCounter(element, counter.target, counter.duration);
+                            }
+                        }, index * 300); // Stagger animation start times
+                    });
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe stats section for counter animation
+            const statsSection = document.getElementById('stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+
+            // Observe project cards for fade-in animation
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>

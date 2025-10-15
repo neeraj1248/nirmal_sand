@@ -1,245 +1,949 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Nirmal Sand and Infra</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/animations.css">
-  <link rel="stylesheet" href="styles/responsive.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nirmal Sand & Infra</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gold: #eba500;
+            --dark-gray: #292929;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Contact Form Styles */
+        .form-group {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            resize: vertical;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 1.2rem;
+            color: #6b7280;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: white;
+            padding: 0 0.5rem;
+        }
+
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label,
+        .form-textarea:focus + .form-label,
+        .form-textarea:not(:placeholder-shown) + .form-label {
+            top: -0.5rem;
+            left: 0.7rem;
+            font-size: 0.875rem;
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Contact Info Cards */
+        .contact-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f3f4f6;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Map Styles */
+        .map-container {
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #contactMap {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Premium Background Elements */
+        .premium-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .premium-blob.gold {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+        }
+        
+        .premium-blob.small { width: 150px; height: 150px; }
+        .premium-blob.medium { width: 250px; height: 250px; }
+        .premium-blob.large { width: 400px; height: 400px; }
+        .premium-blob.delay-1 { animation-delay: 2s; }
+        .premium-blob.delay-2 { animation-delay: 4s; }
+
+        /* Success/Error Messages */
+        .message {
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .message.success {
+            background: #d1fae5;
+            border: 1px solid #34d399;
+            color: #065f46;
+        }
+
+        .message.error {
+            background: #fee2e2;
+            border: 1px solid #f87171;
+            color: #991b1b;
+        }
+
+        .message.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Office Hours Styling */
+        .office-hours {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .form-input, .form-textarea {
+                padding: 0.875rem 1rem;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 1.25rem;
+            }
+        }
+    </style>
 </head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
-          <span class="logo-text">Nirmal Sand and Infra</span>
+<body class="bg-gray-50">
+    <!-- Top Contact Strip -->
+    <div class="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 py-1.5 px-4 text-xs fixed w-full top-0 z-[9999]">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Left Side - Contact Info -->
+            <div class="flex items-center space-x-4 text-gray-800">
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-envelope text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">info@nirmalsandinfra.com</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-phone-alt text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">+91 98765 43210</span>
+                </div>
+            </div>
+            
+            <!-- Right Side - Social Media Icons -->
+            <div class="flex items-center space-x-3">
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-yellow-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-facebook-f text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-400 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-twitter text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-pink-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-instagram text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-linkedin-in text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-red-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-youtube text-xs"></i>
+                </a>
+            </div>
         </div>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="team.html" class="nav-link">Team</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="contact.html" class="nav-link active">Contact</a></li>
-          <li><a href="careers.html" class="nav-link">Careers</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1 class="page-title">Contact Us</h1>
-      <p class="page-subtitle">Get in Touch with Our Team</p>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="container">
-      <div class="contact-content">
-        <!-- Contact Information -->
-        <div class="contact-info">
-          <h2>Get in Touch</h2>
-          <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="contact-text">
-                <h3>Address</h3>
-                <p>123 Construction Street<br>Bandra Kurla Complex<br>Mumbai, Maharashtra 400051</p>
-              </div>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full z-[9998]" style="top: 32px;">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg width="120" height="60" viewBox="0 0 120 60" class="hover:opacity-90 transition-opacity">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#eba500;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d4940a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Building Icon Outlines -->
+                        <rect x="20" y="15" width="8" height="30" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="30" y="20" width="8" height="25" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="40" y="12" width="8" height="33" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="50" y="18" width="8" height="27" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <!-- Company Initials -->
+                        <text x="70" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#logoGradient)">NS</text>
+                        <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="url(#logoGradient)" opacity="0.8">INFRA</text>
+                        <!-- Decorative elements -->
+                        <circle cx="105" cy="15" r="3" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                        <circle cx="105" cy="45" r="2" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">About</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Projects</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Gallery</a>
+                    <a href="team.html" class="text-yellow-500 font-medium">Team</a>
+                    <a href="careers.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Careers</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Contact</a>
+                    <a href="contact.html" class="text-yellow-500 font-medium">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl" style="color: var(--dark-gray);"></i>
+                </button>
             </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="contact-text">
-                <h3>Phone</h3>
-                <p>+91 98765 43210<br>+91 22 2654 7890</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-text">
-                <h3>Email</h3>
-                <p>info@nirmalsandinfra.com<br>projects@nirmalsandinfra.com</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="contact-text">
-                <h3>Working Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="social-links">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
         </div>
         
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <h2>Send us a Message</h2>
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" required>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-[9997] md:hidden">
+            <div class="p-6" style="padding-top: 65px;">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold" styl-color: var(--dark-gray);">Menu</h2>
+                    <button onclick="toggleMobileMenu()">
+                        <i class="fas fa-times text-2xl" style="color: var(--dark-gray);"></i>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="index.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Home</a>
+                    <a href="about.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">About</a>
+                    <a href="services.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Services</a>
+                    <a href="projects.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Projects</a>
+                    <a href="gallery.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Gallery</a>
+                    <a href="team.html" class="block text-lg text-yellow-500" onclick="toggleMobileMenu()">Team</a>
+                    <a href="contact.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+                </nav>
             </div>
-            
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject">
-                <option value="">Select a subject</option>
-                <option value="project-inquiry">Project Inquiry</option>
-                <option value="partnership">Partnership Opportunity</option>
-                <option value="career">Career Inquiry</option>
-                <option value="general">General Question</option>
-                <option value="support">Support</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project or inquiry..."></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn">
-              <i class="fas fa-paper-plane"></i>
-              Send Message
-            </button>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Map Section -->
-  <section class="map-section">
-    <div class="container">
-      <h2 class="section-title">Find Us</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.8267739870393!2d72.86311931490213!3d19.063109987094398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8c2b1234567%3A0x1234567890abcdef!2sBandra%20Kurla%20Complex%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </section>
+    <!-- Main Content -->
+    <main style="padding-top: 112px;">
+        
+        <!-- Hero Section -->
+        <section class="relative py-24 bg-gradient-to-br from-gray-50 via-white to-yellow-50 overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0">
+                <div class="premium-blob gold small top-20 left-10 delay-1"></div>
+                <div class="premium-blob gold medium top-40 right-20"></div>
+                <div class="premium-blob gold large bottom-20 left-1/3 delay-2"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-fade-in">
+                        Contact Us
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 animate-fade-in max-w-3xl mx-auto">
+                        Ready to start your next construction project? Get in touch with our expert team for personalized solutions and professional consultation.
+                    </p>
+                    <div class="animate-fade-in">
+                        <a href="#contact-form" class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo">
-            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
-            <span>Nirmal Sand and Infra</span>
-          </div>
-          <p class="footer-description">
-            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="clients.html">Our Clients</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Services</h3>
-          <ul class="footer-links">
-            <li><a href="#">Commercial Construction</a></li>
-            <li><a href="#">Residential Projects</a></li>
-            <li><a href="#">Infrastructure Development</a></li>
-            <li><a href="#">Industrial Construction</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>123 Construction Street, Mumbai, Maharashtra</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+91 98765 43210</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>info@nirmalsandinfra.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+        <!-- Contact Information Cards -->
+        <section class="py-20 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                        Get In <span class="text-gradient">Touch</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We're here to help with all your construction and infrastructure needs. Reach out through any of these convenient methods.
+                    </p>
+                </div>
 
-  <script src="js/main.js"></script>
-  <script src="js/contact.js"></script>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <!-- Phone Contact -->
+                    <div class="contact-card hover-lift animate-scale-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Call Us</h3>
+                        <p class="text-gray-600 mb-4">Speak directly with our team</p>
+                        <div class="space-y-2">
+                            <a href="tel:+919876543210" class="block text-yellow-600 hover:text-yellow-700 font-semibold">
+                                +91 98765 43210
+                            </a>
+                            <a href="tel:+919876543211" class="block text-gray-600 hover:text-gray-700">
+                                +91 98765 43211
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">
+                            Mon - Sat: 9:00 AM - 7:00 PM
+                        </p>
+                    </div>
+
+                    <!-- Email Contact -->
+                    <div class="contact-card hover-lift animate-scale-in" style="animation-delay: 0.1s">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Email Us</h3>
+                        <p class="text-gray-600 mb-4">Send us your inquiries</p>
+                        <div class="space-y-2">
+                            <a href="mailto:info@nirmalsandinfra.com" class="block text-yellow-600 hover:text-yellow-700 font-semibold break-all">
+                                info@nirmalsandinfra.com
+                            </a>
+                            <a href="mailto:projects@nirmalsandinfra.com" class="block text-gray-600 hover:text-gray-700 break-all">
+                                projects@nirmalsandinfra.com
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">
+                            We'll respond within 24 hours
+                        </p>
+                    </div>
+
+                    <!-- Office Location -->
+                    <div class="contact-card hover-lift animate-scale-in" style="animation-delay: 0.2s">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Visit Us</h3>
+                        <p class="text-gray-600 mb-4">Our main office location</p>
+                        <address class="text-gray-700 not-italic">
+                            123 Construction Avenue<br>
+                            Business District<br>
+                            Mumbai, Maharashtra 400001<br>
+                            India
+                        </address>
+                        <p class="text-sm text-gray-500 mt-4">
+                            Office Hours: 9:00 AM - 6:00 PM
+                        </p>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="contact-card hover-lift animate-scale-in" style="animation-delay: 0.3s">
+                        <div class="contact-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Emergency</h3>
+                        <p class="text-gray-600 mb-4">24/7 emergency support</p>
+                        <div class="space-y-2">
+                            <a href="tel:+919876543299" class="block text-red-600 hover:text-red-700 font-semibold">
+                                +91 98765 43299
+                            </a>
+                            <a href="mailto:emergency@nirmalsandinfra.com" class="block text-gray-600 hover:text-gray-700 text-sm break-all">
+                                emergency@nirmalsandinfra.com
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">
+                            Available 24/7 for urgent matters
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Map Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    
+                    <!-- Contact Form -->
+                    <div class="glass-card rounded-2xl p-8 shadow-2xl">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">
+                            Send Us a <span class="text-gradient">Message</span>
+                        </h3>
+                        <p class="text-gray-600 mb-8">
+                            Fill out the form below and we'll get back to you as soon as possible with a detailed response.
+                        </p>
+
+                        <!-- Success/Error Messages -->
+                        <div id="successMessage" class="message success">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Thank you! Your message has been sent successfully. We'll get back to you soon.
+                        </div>
+                        
+                        <div id="errorMessage" class="message error">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            Something went wrong. Please try again or contact us directly.
+                        </div>
+
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <input type="text" id="firstName" name="firstName" class="form-input" placeholder=" " required>
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="lastName" name="lastName" class="form-input" placeholder=" " required>
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+                                    <label for="email" class="form-label">Email Address *</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" name="phone" class="form-input" placeholder=" " required>
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <select id="projectType" name="projectType" class="form-input" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="residential">Residential Construction</option>
+                                    <option value="commercial">Commercial Building</option>
+                                    <option value="infrastructure">Infrastructure Development</option>
+                                    <option value="renovation">Renovation & Remodeling</option>
+                                    <option value="consultation">Consultation Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" class="form-input" placeholder=" " required>
+                                <label for="subject" class="form-label">Subject *</label>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="5" class="form-textarea" placeholder=" " required></textarea>
+                                <label for="message" class="form-label">Message *</label>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="agreement" name="agreement" class="w-5 h-5 text-yellow-600" required>
+                                <label for="agreement" class="text-gray-600 text-sm">
+                                    I agree to the <a href="#" class="text-yellow-600 hover:text-yellow-700">Privacy Policy</a> and <a href="#" class="text-yellow-600 hover:text-yellow-700">Terms of Service</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="submit-btn w-full">
+                                <span class="flex items-center justify-center">
+                                    <i class="fas fa-paper-plane mr-2"></i>
+                                    Send Message
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Map & Office Info -->
+                    <div class="space-y-8">
+                        <!-- Interactive Map -->
+                        <div class="map-container">
+                            <div id="contactMap"></div>
+                        </div>
+
+                        <!-- Office Hours -->
+                        <div class="office-hours">
+                            <h4 class="text-xl font-bold mb-4 flex items-center">
+                                <i class="fas fa-clock mr-3"></i>
+                                Business Hours
+                            </h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="font-semibold">Monday - Friday</p>
+                                    <p>9:00 AM - 7:00 PM</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Saturday</p>
+                                    <p>9:00 AM - 5:00 PM</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Sunday</p>
+                                    <p>Closed</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Emergency</p>
+                                    <p>24/7 Available</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Contact -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4">Quick Contact</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-yellow-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Call Now</p>
+                                        <a href="tel:+919876543210" class="text-yellow-600 font-semibold hover:text-yellow-700">
+                                            +91 98765 43210
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-yellow-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Email Us</p>
+                                        <a href="mailto:info@nirmalsandinfra.com" class="text-yellow-600 font-semibold hover:text-yellow-700 break-all">
+                                            info@nirmalsandinfra.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Nirmal Sand & Infra</h3>
+                            <p class="text-yellow-500">Premium Construction</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Leading construction and infrastructure company committed to delivering excellence 
+                        through innovative solutions, quality materials, and sustainable practices. 
+                        Building the future, one project at a time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Projects</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="text-yellow-500">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">123 Construction Avenue</p>
+                                <p class="text-gray-300">Business District, Mumbai 400001</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-yellow-500"></i>
+                            <p class="text-gray-300">+91 98765 43210</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-yellow-500"></i>
+                            <p class="text-gray-300">info@nirmalsandinfra.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2023 Nirmal Sand & Infra. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Terms & Conditions</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Initialize Map
+        function initMap() {
+            // Coordinates for Mumbai, Maharashtra (you can change these to your actual location)
+            const lat = 19.0760;
+            const lng = 72.8777;
+            
+            const map = L.map('contactMap').setView([lat, lng], 13);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Add custom marker
+            const customIcon = L.divIcon({
+                html: '<div style="background: linear-gradient(135deg, #f59e0b, #d97706); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);"><i class="fas fa-building" style="color: white; font-size: 12px;"></i></div>',
+                className: 'custom-marker',
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+            
+            L.marker([lat, lng], { icon: customIcon })
+                .addTo(map)
+                .bindPopup(`
+                    <div style="text-align: center; font-family: 'Inter', sans-serif;">
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-weight: 600;">Nirmal Sand & Infra</h3>
+                        <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">123 Construction Avenue<br>Business District, Mumbai 400001</p>
+                        <div style="display: flex; justify-content: center; gap: 8px; margin-top: 12px;">
+                            <a href="tel:+919876543210" style="background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                                <i class="fas fa-phone"></i> Call
+                            </a>
+                            <a href="https://maps.google.com/?q=${lat},${lng}" target="_blank" style="background: #374151; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                                <i class="fas fa-directions"></i> Directions
+                            </a>
+                        </div>
+                    </div>
+                `)
+                .openPopup();
+        }
+
+        // Contact Form Handling
+        function initContactForm() {
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Hide previous messages
+                successMessage.classList.remove('show');
+                errorMessage.classList.remove('show');
+
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                // Basic validation
+                if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.subject || !data.message) {
+                    showMessage('error', 'Please fill in all required fields.');
+                    return;
+                }
+
+                if (!data.agreement) {
+                    showMessage('error', 'Please agree to the Privacy Policy and Terms of Service.');
+                    return;
+                }
+
+                // Simulate form submission (replace with actual API call)
+                simulateFormSubmission(data);
+            });
+        }
+
+        function simulateFormSubmission(data) {
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate API call delay
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Show success message
+                showMessage('success');
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+
+                // Log data (in real implementation, send to server)
+                console.log('Form submitted:', data);
+            }, 2000);
+        }
+
+        function showMessage(type, customMessage = null) {
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (type === 'success') {
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            } else if (type === 'error') {
+                if (customMessage) {
+                    errorMessage.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i>${customMessage}`;
+                }
+                errorMessage.classList.add('show');
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-scale-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            elements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initMap();
+            initContactForm();
+            animateOnScroll();
+        });
+
+        // Handle form input animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.form-input, .form-textarea');
+            
+            inputs.forEach(input => {
+                // Handle placeholder behavior
+                input.addEventListener('input', function() {
+                    if (this.value) {
+                        this.setAttribute('data-filled', 'true');
+                    } else {
+                        this.removeAttribute('data-filled');
+                    }
+                });
+
+                // Initial check
+                if (input.value) {
+                    input.setAttribute('data-filled', 'true');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

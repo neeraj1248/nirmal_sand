@@ -1,261 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Nirmal Sand and Infra</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/animations.css">
-  <link rel="stylesheet" href="styles/responsive.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery - Nirmal Sand & Infra</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gold: #eba500;
+            --dark-gray: #292929;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 1rem;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .modal-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-nav.prev {
+            left: 20px;
+        }
+
+        .modal-nav.next {
+            right: 20px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .modal-counter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Filter Styles */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #f59e0b;
+            background: transparent;
+            color: #f59e0b;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #f59e0b;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem 0;
+            }
+
+            .modal-nav {
+                width: 40px;
+                height: 40px;
+            }
+
+            .modal-nav.prev {
+                left: 10px;
+            }
+
+            .modal-nav.next {
+                right: 10px;
+            }
+
+            .modal-info {
+                padding: 2rem 1rem 1rem;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Premium Background Elements */
+        .premium-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .premium-blob.gold {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+        }
+        
+        .premium-blob.small { width: 150px; height: 150px; }
+        .premium-blob.medium { width: 250px; height: 250px; }
+        .premium-blob.large { width: 400px; height: 400px; }
+        .premium-blob.delay-1 { animation-delay: 2s; }
+        .premium-blob.delay-2 { animation-delay: 4s; }
+    </style>
 </head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <img src="assets/logo.png" alt="Nirmal Sand and Infra" class="logo-img">
-          <span class="logo-text">Nirmal Sand and Infra</span>
+<body class="bg-white">
+    <!-- Top Contact Strip -->
+    <div class="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 py-1.5 px-4 text-xs fixed w-full top-0 z-[9999]">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Left Side - Contact Info -->
+            <div class="flex items-center space-x-4 text-gray-800">
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-envelope text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">info@nirmalsandinfra.com</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                    <i class="fas fa-phone-alt text-yellow-700 text-sm"></i>
+                    <span class="font-semibold">+91 98765 43210</span>
+                </div>
+            </div>
+            
+            <!-- Right Side - Social Media Icons -->
+            <div class="flex items-center space-x-3">
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-yellow-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-facebook-f text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-400 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-twitter text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-pink-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-instagram text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-linkedin-in text-xs"></i>
+                </a>
+                <a href="#" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-gray-800 hover:text-white hover:bg-red-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm">
+                    <i class="fab fa-youtube text-xs"></i>
+                </a>
+            </div>
         </div>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="clients.html" class="nav-link">Our Clients</a></li>
-          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-          <li><a href="team.html" class="nav-link">Team</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="careers.html" class="nav-link">Careers</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1 class="page-title">Project Gallery</h1>
-      <p class="page-subtitle">Showcasing Our Construction Excellence</p>
     </div>
-  </section>
-
-  <!-- Gallery Filter -->
-  <section class="gallery-section">
-    <div class="container">
-      <div class="gallery-filter">
-        <button class="filter-btn active" data-filter="all">All Images</button>
-        <button class="filter-btn" data-filter="commercial">Commercial</button>
-        <button class="filter-btn" data-filter="residential">Residential</button>
-        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-        <button class="filter-btn" data-filter="industrial">Industrial</button>
-      </div>
-
-      <!-- Gallery Grid -->
-      <div class="gallery-grid">
-        <div class="gallery-item" data-category="commercial">
-          <img src="assets/gallery-commercial-1.jpg" alt="Commercial Project 1">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Corporate Tower</h3>
-              <p>Mumbai, Maharashtra</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-commercial-1.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full z-[9998]" style="top: 32px;">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg width="120" height="60" viewBox="0 0 120 60" class="hover:opacity-90 transition-opacity">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#eba500;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d4940a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Building Icon Outlines -->
+                        <rect x="20" y="15" width="8" height="30" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="30" y="20" width="8" height="25" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="40" y="12" width="8" height="33" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <rect x="50" y="18" width="8" height="27" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                        <!-- Company Initials -->
+                        <text x="70" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#logoGradient)">NS</text>
+                        <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="url(#logoGradient)" opacity="0.8">INFRA</text>
+                        <!-- Decorative elements -->
+                        <circle cx="105" cy="15" r="3" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                        <circle cx="105" cy="45" r="2" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">About</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Projects</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Gallery</a>
+                    <a href="team.html" class="text-yellow-500 font-medium">Team</a>
+                    <a href="careers.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Careers</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl" style="color: var(--dark-gray);"></i>
+                </button>
             </div>
-          </div>
         </div>
-
-        <div class="gallery-item" data-category="residential">
-          <img src="assets/gallery-residential-1.jpg" alt="Residential Project 1">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Luxury Apartments</h3>
-              <p>Delhi, NCR</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-residential-1.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-[9997] md:hidden">
+            <div class="p-6" style="padding-top: 65px;">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold" style="color: var(--dark-gray);">Menu</h2>
+                    <button onclick="toggleMobileMenu()">
+                        <i class="fas fa-times text-2xl" style="color: var(--dark-gray);"></i>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="index.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Home</a>
+                    <a href="about.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">About</a>
+                    <a href="services.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Services</a>
+                    <a href="projects.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Projects</a>
+                    <a href="gallery.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Gallery</a>
+                    <a href="team.html" class="block text-lg text-yellow-500" onclick="toggleMobileMenu()">Team</a>
+                    <a href="contact.html" class="block text-lg text-gray-700 hover:text-yellow-500 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+                </nav>
             </div>
-          </div>
         </div>
+    </header>
 
-        <div class="gallery-item" data-category="infrastructure">
-          <img src="assets/gallery-infrastructure-1.jpg" alt="Infrastructure Project 1">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Highway Bridge</h3>
-              <p>Pune, Maharashtra</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-infrastructure-1.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
+    <!-- Main Content -->
+    <main style="padding-top: 112px;">
+        
+        <!-- Hero Section -->
+        <section class="relative py-24 bg-gradient-to-br from-gray-50 via-white to-yellow-50 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img id="heroBackgroundImage" 
+                     src="" 
+                     alt="Construction Background" 
+                     class="w-full h-full object-cover opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-white/70 to-yellow-50/80"></div>
             </div>
-          </div>
-        </div>
+            
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0">
+                <div class="premium-blob gold small top-20 left-10 delay-1"></div>
+                <div class="premium-blob gold medium top-40 right-20"></div>
+                <div class="premium-blob gold large bottom-20 left-1/3 delay-2"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-fade-in">
+                        Project Gallery
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 animate-fade-in max-w-3xl mx-auto">
+                        Explore our extensive portfolio of construction and infrastructure projects showcasing excellence in design, quality, and innovation.
+                    </p>
+                    <div class="animate-fade-in">
+                        <a href="#gallery" class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105">
+                            View Gallery
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="gallery-item" data-category="industrial">
-          <img src="assets/gallery-industrial-1.jpg" alt="Industrial Project 1">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Manufacturing Facility</h3>
-              <p>Chennai, Tamil Nadu</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-industrial-1.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-4">
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="gallery-item" data-category="commercial">
-          <img src="assets/gallery-commercial-2.jpg" alt="Commercial Project 2">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Shopping Complex</h3>
-              <p>Bangalore, Karnataka</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-commercial-2.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+    </main>
 
-        <div class="gallery-item" data-category="residential">
-          <img src="assets/gallery-residential-2.jpg" alt="Residential Project 2">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Villa Community</h3>
-              <p>Hyderabad, Telangana</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-residential-2.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
+    <!-- Modal for Image Viewing -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="" class="modal-image">
+            <div class="modal-info">
+                <h3 id="modalTitle" class="text-2xl font-bold mb-2"></h3>
+                <p id="modalDescription" class="text-gray-200"></p>
             </div>
-          </div>
+            <button class="modal-nav prev" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav next" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="modal-close" id="closeBtn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-counter" id="modalCounter">1 / 12</div>
         </div>
-
-        <div class="gallery-item" data-category="infrastructure">
-          <img src="assets/gallery-infrastructure-2.jpg" alt="Infrastructure Project 2">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Metro Station</h3>
-              <p>Kolkata, West Bengal</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-infrastructure-2.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="industrial">
-          <img src="assets/gallery-industrial-2.jpg" alt="Industrial Project 2">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Warehouse Complex</h3>
-              <p>Ahmedabad, Gujarat</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-industrial-2.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="commercial">
-          <img src="assets/gallery-commercial-3.jpg" alt="Commercial Project 3">
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h3>Office Complex</h3>
-              <p>Noida, Uttar Pradesh</p>
-              <button class="view-image-btn" onclick="openLightbox('assets/gallery-commercial-3.jpg')">
-                <i class="fas fa-expand"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-content">
-      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-      <img src="" alt="Gallery Image" id="lightboxImage">
-    </div>
-  </div>
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Nirmal Sand & Infra</h3>
+                            <p class="text-yellow-500">Premium Construction</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Leading construction and infrastructure company committed to delivering excellence 
+                        through innovative solutions, quality materials, and sustainable practices. 
+                        Building the future, one project at a time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Projects</a></li>
+                        <li><a href="gallery.html" class="text-yellow-500">Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-yellow-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">123 Construction Avenue</p>
+                                <p class="text-gray-300">Business District, City 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-yellow-500"></i>
+                            <p class="text-gray-300">+91 98765 43210</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-yellow-500"></i>
+                            <p class="text-gray-300">info@nirmalsandinfra.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2023 Nirmal Sand & Infra. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Terms & Conditions</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo">
-            <img src="assets/logo.png" alt="Nirmal Sand and Infra">
-            <span>Nirmal Sand and Infra</span>
-          </div>
-          <p class="footer-description">
-            Building tomorrow's infrastructure with excellence, innovation, and sustainability at the core of everything we do.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="clients.html">Our Clients</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Services</h3>
-          <ul class="footer-links">
-            <li><a href="#">Commercial Construction</a></li>
-            <li><a href="#">Residential Projects</a></li>
-            <li><a href="#">Infrastructure Development</a></li>
-            <li><a href="#">Industrial Construction</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>123 Construction Street, Mumbai, Maharashtra</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+91 98765 43210</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>info@nirmalsandinfra.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Nirmal Sand and Infra. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- JavaScript -->
+    <script>
+        // Gallery Data
+        const galleryData = [
+            {
+                id: 1,
+                title: "Major Construction Site Development",
+                description: "Large-scale construction site featuring modern heavy machinery, cranes, and infrastructure development with comprehensive project management and safety protocols.",
+                image: "https://bringmethenews.com/.image/t_share/MTcxNTczNDIyNjg0MzgyNTY4/construction.jpg",
+                category: "infrastructure"
+            },
+            {
+                id: 2,
+                title: "Heavy Equipment Operations",
+                description: "Professional construction operations utilizing advanced heavy machinery and equipment for efficient project execution and timely completion.",
+                image: "https://tse1.mm.bing.net/th/id/OIP.KB0H6ZnAGchQBtXolaXwtQHaE7?cb=12&w=1800&h=1198&rs=1&pid=ImgDetMain&o=7&rm=3",
+                category: "industrial"
+            },
+            {
+                id: 3,
+                title: "Precision Road Construction",
+                description: "State-of-the-art precision road construction techniques employing modern machinery and quality materials for durable infrastructure development.",
+                image: "https://img.freepik.com/premium-photo/precision-road-construction-accurate-work-techniques_1168612-311831.jpg",
+                category: "infrastructure"
+            },
+            {
+                id: 4,
+                title: "Advanced Road Building Technology",
+                description: "Implementation of cutting-edge road construction technology and methodologies ensuring high-quality, long-lasting transportation infrastructure.",
+                image: "https://img.freepik.com/premium-photo/precision-road-construction-accurate-work-techniques_1168612-311831.jpg",
+                category: "infrastructure"
+            },
+            {
+                id: 5,
+                title: "Civil Engineering Supervision",
+                description: "Expert civil engineers supervising road construction sites with professional oversight, quality control, and adherence to safety standards.",
+                image: "https://img.freepik.com/premium-photo/civil-engineers-supervise-road-construction-sites_875825-39155.jpg",
+                category: "commercial"
+            },
+            {
+                id: 6,
+                title: "Road Construction at Sunset",
+                description: "Continuous construction operations extending into evening hours, demonstrating commitment to project timelines and efficient workflow management.",
+                image: "https://img.freepik.com/premium-photo/road-construction-sunset_973350-1583.jpg",
+                category: "infrastructure"
+            },
+            {
+                id: 7,
+                title: "Infrastructure Development Project",
+                description: "Comprehensive infrastructure development showcasing modern construction techniques, project planning, and execution of large-scale civil works.",
+                image: "https://www.constructionworld.in/assets/uploads/7e8630a38e7e434c5f1c2179d5339ee4.jpg",
+                category: "infrastructure"
+            },
+            {
+                id: 8,
+                title: "Highway Construction Excellence",
+                description: "Premium highway construction project demonstrating advanced engineering solutions, quality materials, and professional construction management.",
+                image: "https://organiser.org/wp-content/uploads/2023/07/road-ways.jpg",
+                category: "infrastructure"
+            }
+        ];
 
-  <script src="js/main.js"></script>
-  <script src="js/gallery.js"></script>
+        let currentFilter = 'all';
+        let currentImageIndex = 0;
+        let filteredImages = [...galleryData];
+
+        // Initialize Gallery
+        function initGallery() {
+            renderGallery();
+            setupModal();
+        }
+
+        // Render Gallery Items
+        function renderGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            filteredImages = galleryData; // Show all images
+
+            galleryGrid.innerHTML = galleryData.map((item, index) => `
+                <div class="gallery-item animate-scale-in" data-index="${index}" style="animation-delay: ${index * 0.1}s">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">${item.title}</div>
+                        <div class="gallery-description">${item.description}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click listeners to gallery items
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.addEventListener('click', () => openModal(index));
+            });
+        }
+
+        // Setup Modal Functionality
+        function setupModal() {
+            const modal = document.getElementById('imageModal');
+            const closeBtn = document.getElementById('closeBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Close modal
+            closeBtn.addEventListener('click', closeModal);
+            
+            // Navigation buttons
+            prevBtn.addEventListener('click', showPrevImage);
+            nextBtn.addEventListener('click', showNextImage);
+
+            // Close on backdrop click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', handleKeyPress);
+        }
+
+        // Open Modal
+        function openModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('imageModal');
+            updateModalContent();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Update Modal Content
+        function updateModalContent() {
+            const item = filteredImages[currentImageIndex];
+            document.getElementById('modalImage').src = item.image;
+            document.getElementById('modalImage').alt = item.title;
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalDescription').textContent = item.description;
+            document.getElementById('modalCounter').textContent = `${currentImageIndex + 1} / ${filteredImages.length}`;
+        }
+
+        // Show Previous Image
+        function showPrevImage() {
+            currentImageIndex = currentImageIndex === 0 ? filteredImages.length - 1 : currentImageIndex - 1;
+            updateModalContent();
+        }
+
+        // Show Next Image
+        function showNextImage() {
+            currentImageIndex = currentImageIndex === filteredImages.length - 1 ? 0 : currentImageIndex + 1;
+            updateModalContent();
+        }
+
+        // Handle Keyboard Navigation
+        function handleKeyPress(e) {
+            if (!document.getElementById('imageModal').classList.contains('active')) return;
+
+            switch(e.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+                case 'ArrowLeft':
+                    showPrevImage();
+                    break;
+                case 'ArrowRight':
+                    showNextImage();
+                    break;
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hero Background Images
+        const heroBackgroundImages = [
+            'https://bringmethenews.com/.image/t_share/MTcxNTczNDIyNjg0MzgyNTY4/construction.jpg',
+            'https://tse1.mm.bing.net/th/id/OIP.KB0H6ZnAGchQBtXolaXwtQHaE7?cb=12&w=1800&h=1198&rs=1&pid=ImgDetMain&o=7&rm=3',
+            'https://img.freepik.com/premium-photo/precision-road-construction-accurate-work-techniques_1168612-311831.jpg',
+            'https://img.freepik.com/premium-photo/civil-engineers-supervise-road-construction-sites_875825-39155.jpg',
+            'https://img.freepik.com/premium-photo/road-construction-sunset_973350-1583.jpg',
+            'https://www.constructionworld.in/assets/uploads/7e8630a38e7e434c5f1c2179d5339ee4.jpg',
+            'https://organiser.org/wp-content/uploads/2023/07/road-ways.jpg'
+        ];
+
+        // Set Random Hero Background
+        function setRandomHeroBackground() {
+            const randomIndex = Math.floor(Math.random() * heroBackgroundImages.length);
+            const heroImage = document.getElementById('heroBackgroundImage');
+            if (heroImage) {
+                heroImage.src = heroBackgroundImages[randomIndex];
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setRandomHeroBackground();
+            initGallery();
+        });
+    </script>
 </body>
 </html>
